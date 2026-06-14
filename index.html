@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veloiz Studios — Websites That Actually Perform</title>
+  <meta name="description" content="Veloiz Studios builds premium, conversion-focused websites for modern businesses. Sharp design, real results. Based in Pune, India.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body,#vs{background:#000;color:#fff;font-family:'Inter',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden}
+.w{max-width:1060px;margin:0 auto;padding:0 40px}
+.divider{border-top:1px solid rgba(255,255,255,0.07)}
+
+/* CURSOR */
+#cur-dot{position:fixed;width:7px;height:7px;background:#fff;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s;mix-blend-mode:difference}
+#cur-ring{position:fixed;width:30px;height:30px;border:1px solid rgba(255,255,255,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s;mix-blend-mode:difference}
+body.hovering #cur-ring{width:44px;height:44px;background:rgba(255,255,255,0.06)}
+body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(0,0,0,0.82);backdrop-filter:blur(14px);border-bottom-color:rgba(255,255,255,0.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-logo{font-size:14px;font-weight:600;letter-spacing:.04em;color:#fff;cursor:pointer;transition:letter-spacing .3s}
+.nav-logo:hover{letter-spacing:.1em}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:rgba(255,255,255,.45);font-size:13px;text-decoration:none;transition:color .2s;cursor:pointer}
+.nav-links a:hover{color:#fff}
+.nav-cta{border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.75);padding:8px 18px;font-size:12px;border-radius:100px;cursor:pointer;transition:border-color .2s,color .2s,transform .2s;background:transparent;font-family:inherit}
+.nav-cta:hover{border-color:rgba(255,255,255,.6);color:#fff;transform:scale(1.02)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:60px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg canvas{width:100%;height:100%;display:block}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,.85) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;padding:80px 0}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.1);padding:5px 14px;border-radius:100px;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:36px;background:rgba(255,255,255,.04)}
+.tag-dot{width:6px;height:6px;background:#4ade80;border-radius:50%}
+.hero-title{font-size:clamp(44px,7vw,88px);font-weight:600;line-height:1.05;letter-spacing:-.04em;margin-bottom:28px}
+.hero-title span{display:inline-block;opacity:0;transform:translateY(22px);animation:fadeUp .7s forwards}
+.hero-title .dim{color:rgba(255,255,255,.35)}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.45);max-width:440px;line-height:1.75;margin-bottom:40px;opacity:0;animation:fadeUp .7s .55s forwards}
+.hero-btns{display:flex;gap:16px;align-items:center;opacity:0;animation:fadeUp .7s .75s forwards}
+.btn-pill{border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.75);padding:10px 22px;font-size:13px;border-radius:100px;cursor:pointer;transition:all .2s;background:transparent;font-family:inherit;position:relative;overflow:hidden}
+.btn-pill::before{content:'';position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .3s ease;z-index:0}
+.btn-pill span{position:relative;z-index:1}
+.btn-pill:hover{border-color:#fff;color:#000}
+.btn-pill:hover::before{transform:scaleX(1)}
+.btn-txt{color:rgba(255,255,255,.45);font-size:13px;cursor:pointer;transition:color .2s;background:none;border:none;font-family:inherit}
+.btn-txt:hover{color:#fff}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:56px;opacity:0;animation:fadeUp .7s .95s forwards}
+.h-tag{border:1px solid rgba(255,255,255,.09);color:rgba(255,255,255,.4);padding:6px 14px;border-radius:100px;font-size:12px;transition:all .2s;cursor:default}
+.h-tag:hover{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.8);background:rgba(255,255,255,.04)}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+/* MARQUEE */
+.marquee-sec{padding:20px 0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);background:#050505;overflow:hidden}
+.marquee-track{display:flex;white-space:nowrap;animation:mscroll 25s linear infinite}
+.marquee-sec:hover .marquee-track{animation-play-state:paused}
+.m-item{display:inline-flex;align-items:center;gap:20px;padding:0 20px;font-size:13px;color:rgba(255,255,255,.2);letter-spacing:.06em;font-weight:400}
+.m-dot{width:3px;height:3px;background:rgba(255,255,255,.15);border-radius:50%}
+@keyframes mscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTION SHARED */
+.sec{padding:100px 0}
+.sec-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:48px;display:flex;align-items:center;gap:14px}
+.sec-eyebrow::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.06)}
+.sec-title{font-size:clamp(26px,4vw,48px);font-weight:600;letter-spacing:-.03em;line-height:1.15}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* 3 HEADLINES */
+.three-h{padding:80px 0;border-top:1px solid rgba(255,255,255,.07)}
+.three-h-inner{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid rgba(255,255,255,.07)}
+.th-cell{padding:48px 40px;border-right:1px solid rgba(255,255,255,.07);transition:background .25s}
+.th-cell:last-child{border-right:none}
+.th-cell:hover{background:rgba(255,255,255,.02)}
+.th-num{font-size:11px;color:rgba(255,255,255,.2);letter-spacing:.18em;margin-bottom:20px;font-family:monospace}
+.th-word{font-size:clamp(24px,3vw,38px);font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-bottom:16px}
+.th-desc{font-size:13px;color:rgba(255,255,255,.35);line-height:1.7}
+
+/* ABOUT PARAGRAPH */
+.about-p{padding:80px 0;border-top:1px solid rgba(255,255,255,.07)}
+.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+.about-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:24px}
+.about-quote{font-size:clamp(18px,2.5vw,26px);font-weight:500;letter-spacing:-.02em;line-height:1.4;color:rgba(255,255,255,.85)}
+.about-body{font-size:15px;color:rgba(255,255,255,.4);line-height:1.8;margin-bottom:32px}
+
+/* PROCESS */
+.process-sec{padding:100px 0;border-top:1px solid rgba(255,255,255,.07)}
+.proc-header{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:72px}
+.proc-list{display:flex;flex-direction:column}
+.proc-row{display:grid;grid-template-columns:56px 1fr;gap:24px;padding:36px 0;border-top:1px solid rgba(255,255,255,.06);position:relative}
+.proc-row:last-child{border-bottom:1px solid rgba(255,255,255,.06)}
+.proc-row::before{content:'';position:absolute;left:0;top:0;bottom:100%;width:1px;background:#fff;transition:bottom .5s cubic-bezier(.16,1,.3,1)}
+.proc-row.in::before{bottom:0}
+.proc-num{font-size:12px;font-family:monospace;color:rgba(255,255,255,.25);padding-top:4px;font-weight:500}
+.proc-title{font-size:18px;font-weight:600;letter-spacing:-.01em;margin-bottom:8px;color:#fff}
+.proc-desc{font-size:14px;color:rgba(255,255,255,.4);line-height:1.75;max-width:440px}
+
+
+
+/* WORK */
+.work-sec{padding:100px 0;border-top:1px solid rgba(255,255,255,.07)}
+.work-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px}
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.07)}
+.work-card{background:#000;padding:0;cursor:pointer;overflow:hidden;position:relative}
+.work-img{aspect-ratio:4/3;background:#0e0e0e;display:flex;align-items:center;justify-content:center;transition:transform .4s cubic-bezier(.16,1,.3,1);position:relative}
+.work-img-txt{font-size:13px;color:rgba(255,255,255,.15);letter-spacing:.1em;text-transform:uppercase}
+.work-card:hover .work-img{transform:scale(1.04)}
+.work-card:hover ~ .work-card .work-img,.work-grid:hover .work-card:not(:hover) .work-img{filter:brightness(0.55)}
+.work-meta{padding:24px 28px 32px}
+.work-tag-sm{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:8px}
+.work-title-sm{font-size:17px;font-weight:600;letter-spacing:-.01em;display:flex;align-items:center;justify-content:space-between}
+.work-arr{color:rgba(255,255,255,.2);transition:transform .25s,color .25s}
+.work-card:hover .work-arr{transform:translateX(5px);color:#fff}
+.work-desc-sm{font-size:13px;color:rgba(255,255,255,.35);margin-top:6px;line-height:1.6}
+
+/* STATEMENT */
+.stmt-sec{padding:140px 0;border-top:1px solid rgba(255,255,255,.07)}
+.stmt-grid{display:flex;flex-direction:column;gap:80px}
+.stmt-large{font-size:clamp(32px, 4.5vw, 56px);line-height:1.15;letter-spacing:-0.03em;max-width:850px}
+.stmt-large .grey{color:rgba(255,255,255,.4)}
+.stmt-large .white{color:#fff;font-weight:600}
+.stmt-bottom{display:flex;justify-content:space-between;align-items:flex-end}
+.stmt-desc{font-size:15px;color:rgba(255,255,255,.4);line-height:1.6;max-width:320px}
+
+/* STATS */
+.stats-sec{padding:80px 0;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat-cell{padding:0 40px;border-right:1px solid rgba(255,255,255,.07);text-align:left}
+.stat-cell:first-child{padding-left:0}
+.stat-cell:last-child{border-right:none}
+.stat-num{font-size:clamp(32px,4vw,52px);font-weight:600;letter-spacing:-.04em;line-height:1}
+.stat-lbl{font-size:12px;color:rgba(255,255,255,.3);letter-spacing:.08em;margin-top:8px;text-transform:uppercase}
+
+/* PRICING */
+.pricing-sec{padding:100px 0;border-top:1px solid rgba(255,255,255,.07)}
+.pricing-header{margin-bottom:64px}
+.pricing-sub{font-size:15px;color:rgba(255,255,255,.4);max-width:480px;margin-top:16px;line-height:1.75}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07)}
+.p-card{background:#000;padding:40px 32px;transition:background .25s}
+.p-card:hover{background:#080808}
+.p-card.feat{background:#070707;border-top:2px solid rgba(255,255,255,.22)}
+.p-name{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:28px}
+.p-price{font-size:clamp(28px,4vw,44px);font-weight:300;letter-spacing:-.03em;margin-bottom:4px}
+.p-period{font-size:12px;color:rgba(255,255,255,.3);margin-bottom:36px}
+.p-feats{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:40px}
+.p-feats li{font-size:13px;color:rgba(255,255,255,.45);display:flex;gap:10px;align-items:flex-start}
+.p-feats li::before{content:'—';color:rgba(255,255,255,.18);flex-shrink:0}
+.p-btn{width:100%;padding:12px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:transparent;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.5);cursor:pointer;transition:all .25s;font-family:inherit;position:relative;overflow:hidden}
+.p-btn::before{content:'';position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.p-btn span{position:relative;z-index:1}
+.p-btn:hover{border-color:#fff;color:#000}
+.p-btn:hover::before{transform:scaleX(1)}
+.addons{margin-top:40px;padding-top:28px;border-top:1px solid rgba(255,255,255,.06);text-align:center;font-size:13px;color:rgba(255,255,255,.25);letter-spacing:.04em}
+
+/* TESTIMONIALS */
+.testi-sec{padding:120px 0;border-top:1px solid rgba(255,255,255,.07)}
+.testi-header{text-align:center;margin-bottom:64px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testi-card{position:relative;overflow:hidden;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);padding:32px;border-radius:16px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .3s,background .3s}
+.testi-card::after{content:'\201D';position:absolute;top:-10px;right:20px;font-size:160px;line-height:1;color:rgba(255,255,255,.04);font-family:Arial,sans-serif;pointer-events:none}
+.testi-card:hover{background:rgba(255,255,255,.03);transform:translateY(-4px)}
+.testi-quote{font-size:15px;line-height:1.7;color:rgba(255,255,255,.55);margin-bottom:32px;font-weight:400;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-av{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:rgba(255,255,255,.8);flex-shrink:0}
+.testi-meta{display:flex;flex-direction:column;gap:2px}
+.testi-name{font-size:14px;font-weight:600;color:#fff}
+.testi-role{font-size:12px;color:rgba(255,255,255,.3)}
+.testi-stars{display:flex;gap:4px;margin-bottom:16px;color:#FFB800}
+.testi-stars svg{width:14px;height:14px}
+
+/* FAQ */
+.faq-sec{padding:100px 0;border-top:1px solid rgba(255,255,255,.07)}
+.faq-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start}
+.faq-hint{font-size:14px;color:rgba(255,255,255,.35);line-height:1.75;margin-top:16px;max-width:300px}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-top:1px solid rgba(255,255,255,.07)}
+.faq-item:last-child{border-bottom:1px solid rgba(255,255,255,.07)}
+.faq-q{width:100%;background:none;border:none;color:#fff;font-family:inherit;font-size:15px;font-weight:500;text-align:left;padding:24px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .2s}
+.faq-q:hover{color:rgba(255,255,255,.7)}
+.faq-plus{font-size:18px;color:rgba(255,255,255,.25);transition:transform .3s,color .25s;flex-shrink:0;display:inline-block}
+.faq-item.open .faq-plus{transform:rotate(45deg);color:rgba(255,255,255,.6)}
+.faq-a{font-size:14px;color:rgba(255,255,255,.38);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s}
+.faq-item.open .faq-a{max-height:180px;padding-bottom:24px}
+
+/* FINAL CTA */
+.cta-final{padding:140px 0;border-top:1px solid rgba(255,255,255,.07);text-align:center}
+.cta-scarcity{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.35);letter-spacing:.08em;margin-bottom:32px;border:1px solid rgba(255,255,255,.08);padding:5px 14px;border-radius:100px}
+.cta-s-dot{width:5px;height:5px;background:#f87171;border-radius:50%}
+.cta-title{font-size:clamp(36px,6vw,72px);font-weight:600;letter-spacing:-.04em;line-height:1.05;margin-bottom:20px}
+.cta-sub-txt{font-size:15px;color:rgba(255,255,255,.4);margin-bottom:48px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.7}
+.cta-actions{display:flex;justify-content:center;gap:16px;align-items:center}
+
+/* FOOTER */
+.footer{padding:64px 0 40px;border-top:1px solid rgba(255,255,255,.07)}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr;gap:48px;margin-bottom:56px}
+.f-brand-name{font-size:14px;font-weight:600;letter-spacing:.04em;margin-bottom:10px}
+.f-tagline{font-size:13px;color:rgba(255,255,255,.3);line-height:1.7;max-width:210px}
+.f-col-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:18px}
+.f-links{display:flex;flex-direction:column;gap:10px}
+.f-links a{font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;cursor:pointer}
+.f-links a:hover{color:#fff}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid rgba(255,255,255,.05)}
+.f-copy{font-size:12px;color:rgba(255,255,255,.2)}
+.f-social{display:flex;gap:20px}
+.f-social a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s;cursor:pointer}
+.f-social a:hover{color:rgba(255,255,255,.7)}
+
+.menu-btn{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:8px}
+.menu-btn svg{width:24px;height:24px}
+
+@media(max-width:768px){
+  .w{padding:0 20px}
+  .testi-grid{grid-template-columns:1fr;gap:16px}
+  .stmt-bottom{flex-direction:column;align-items:flex-start;gap:32px}
+  .three-h-inner,.proc-header,.about-grid,.work-grid,.pricing-grid,.faq-layout,.footer-top{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat-cell{padding:20px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}
+  .three-h-cell{border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}
+  
+  /* Mobile Nav */
+  .menu-btn{display:block}
+  .nav-links{position:absolute;top:60px;left:0;right:0;background:rgba(0,0,0,0.95);backdrop-filter:blur(10px);flex-direction:column;padding:32px 20px;border-bottom:1px solid rgba(255,255,255,.07);gap:24px;display:none}
+  .nav.mobile-open .nav-links{display:flex}
+  .nav.mobile-open{background:rgba(0,0,0,0.95)}
+  .nav-cta{width:100%;text-align:center}
+  
+  /* WA Button */
+  .wa-float{padding:14px;border-radius:50%}
+  .wa-text{display:none}
+  
+  /* Footer */
+  .footer{padding-bottom:100px}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:20px}
+}
+
+/* FLOATING WHATSAPP */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9000;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:12px 20px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none;font-family:'Inter',sans-serif;box-shadow:0 4px 24px rgba(37,211,102,0.35);transition:transform .2s,box-shadow .2s;letter-spacing:.01em}
+.wa-float:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 8px 32px rgba(37,211,102,0.5)}
+.wa-float svg{width:18px;height:18px;flex-shrink:0}
+.wa-pulse{position:absolute;inset:-4px;border-radius:100px;background:rgba(37,211,102,0.3);animation:waPulse 2s ease-out infinite}
+@keyframes waPulse{0%{transform:scale(1);opacity:.6}70%{transform:scale(1.18);opacity:0}100%{transform:scale(1.18);opacity:0}}
+</style>
+</head>
+<body>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/919272376594?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business." target="_blank" class="wa-float" id="wa-float">
+  <span class="wa-pulse"></span>
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-text">WhatsApp Us</span>
+</a>
+
+<div id="vs">
+  <div id="cur-dot"></div>
+  <div id="cur-ring"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="w"><div class="nav-inner">
+      <span class="nav-logo">Veloiz Studios</span>
+      <button class="menu-btn" id="menu-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#process">Approach</a>
+        <a href="#pricing">Pricing</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="nav-cta">Book A Free Call</a>
+      </div>
+    </div></div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"><canvas id="heroCvs"></canvas></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="w">
+        <div class="hero-tag"><span class="tag-dot" id="tag-dot"></span>Open For Work · Pune, India</div>
+        <h1 class="hero-title">
+          <span style="animation-delay:.05s">Websites</span> <span style="animation-delay:.15s">that</span><br>
+          <span class="dim" style="animation-delay:.27s">actually</span> <span class="dim" style="animation-delay:.37s">perform.</span>
+        </h1>
+        <p class="hero-sub">We design and build websites that make your business the obvious choice. Sharp, fast, and built to convert — not just to impress.</p>
+        <div class="hero-btns">
+          <button class="btn-pill" onclick="window.location.href='#work'"><span>See the Work ↓</span></button>
+          <button class="btn-txt" onclick="window.location.href='#process'">How we Work</button>
+        </div>
+        <div class="hero-tags">
+          <span class="h-tag">Starter Websites</span>
+          <span class="h-tag">Business Websites</span>
+          <span class="h-tag">Custom Builds</span>
+          <span class="h-tag">WhatsApp Integration</span>
+          <span class="h-tag">SEO Optimised</span>
+          <span class="h-tag">Mobile First</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-sec">
+    <div class="marquee-track" id="mtrack">
+      <span class="m-item">Premium Design <span class="m-dot"></span></span>
+      <span class="m-item">Cafes & Restaurants <span class="m-dot"></span></span>
+      <span class="m-item">Gyms & Fitness <span class="m-dot"></span></span>
+      <span class="m-item">Clinics & Healthcare <span class="m-dot"></span></span>
+      <span class="m-item">Travel Agencies <span class="m-dot"></span></span>
+      <span class="m-item">Coaching Institutes <span class="m-dot"></span></span>
+      <span class="m-item">Next.js & Tailwind <span class="m-dot"></span></span>
+      <span class="m-item">SEO Optimised <span class="m-dot"></span></span>
+      <span class="m-item">7-Day Delivery <span class="m-dot"></span></span>
+      <span class="m-item">Pune, India <span class="m-dot"></span></span>
+      <span class="m-item">Premium Design <span class="m-dot"></span></span>
+      <span class="m-item">Cafes & Restaurants <span class="m-dot"></span></span>
+      <span class="m-item">Gyms & Fitness <span class="m-dot"></span></span>
+      <span class="m-item">Clinics & Healthcare <span class="m-dot"></span></span>
+      <span class="m-item">Travel Agencies <span class="m-dot"></span></span>
+      <span class="m-item">Coaching Institutes <span class="m-dot"></span></span>
+      <span class="m-item">Next.js & Tailwind <span class="m-dot"></span></span>
+      <span class="m-item">SEO Optimised <span class="m-dot"></span></span>
+      <span class="m-item">7-Day Delivery <span class="m-dot"></span></span>
+      <span class="m-item">Pune, India <span class="m-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- 3 PILLARS -->
+  <section class="three-h divider">
+    <div class="w">
+      <div class="three-h-inner">
+        <div class="th-cell reveal">
+          <div class="th-num">01</div>
+          <div class="th-word">Intentional</div>
+          <div class="th-desc">Every decision has a reason. We don't add things — we refine until nothing is left to remove.</div>
+        </div>
+        <div class="th-cell reveal" style="transition-delay:.1s">
+          <div class="th-num">02</div>
+          <div class="th-word">Built to Convert</div>
+          <div class="th-desc">A website that doesn't bring business is just an expense. Ours pay for themselves.</div>
+        </div>
+        <div class="th-cell reveal" style="transition-delay:.2s">
+          <div class="th-num">03</div>
+          <div class="th-word">Built to Last</div>
+          <div class="th-desc">Fast, SEO-ready, and mobile-first — engineered to keep performing long after launch day.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-p divider">
+    <div class="w">
+      <div class="about-grid">
+        <div class="reveal">
+          <div class="about-label">The way we think</div>
+          <p class="about-quote">"We don't take briefs. We take ownership."</p>
+        </div>
+        <div class="reveal" style="transition-delay:.1s">
+          <p class="about-body">Before we write a single line of code, we learn your business — your customers, your context, your edge. Most studios skip this part. We think it's the most important part.</p>
+          <p class="about-body">We stay invested long after launch. Not because it's in the contract — because we genuinely care whether your business grows.</p>
+          <button class="btn-pill" style="margin-top:8px" onclick="window.location.href='#process'"><span>our process →</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-sec" id="process">
+    <div class="w">
+      <div class="proc-header">
+        <div class="reveal">
+          <div class="sec-eyebrow">How we work</div>
+          <h2 class="sec-title">Simple process.<br>Serious results.</h2>
+        </div>
+        <div class="reveal" style="transition-delay:.1s;padding-top:56px">
+          <p style="font-size:15px;color:rgba(255,255,255,.4);line-height:1.75">Four stages. Clear timelines. No surprises. You're in the loop at every step — not handed a finished product and left to figure it out.</p>
+        </div>
+      </div>
+      <div class="proc-list">
+        <div class="proc-row reveal">
+          <div class="proc-num">01</div>
+          <div><div class="proc-title">Talk to us</div><p class="proc-desc">No forms. No decks. A real conversation about your business, your goals, and what success actually looks like for you.</p></div>
+        </div>
+        <div class="proc-row reveal" style="transition-delay:.08s">
+          <div class="proc-num">02</div>
+          <div><div class="proc-title">Pick your scope</div><p class="proc-desc">Starter, Business, or fully custom. Transparent pricing agreed upfront — no hidden fees, no lock-in, no awkward conversations later.</p></div>
+        </div>
+        <div class="proc-row reveal" style="transition-delay:.16s">
+          <div class="proc-num">03</div>
+          <div><div class="proc-title">We build fast</div><p class="proc-desc">We move with purpose. You get regular updates, not radio silence. And revisions are part of the deal — not an upsell.</p></div>
+        </div>
+        <div class="proc-row reveal" style="transition-delay:.24s">
+          <div class="proc-num">04</div>
+          <div><div class="proc-title">Launch and grow</div><p class="proc-desc">You go live with everything handed over cleanly. We stay on call for 30 days — and beyond that, we're still just a message away.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WORK -->
+  <section class="work-sec" id="work">
+    <div class="w">
+      <div class="work-header reveal">
+        <div>
+          <div class="sec-eyebrow">Selected work</div>
+          <h2 class="sec-title">Work worth showing.</h2>
+        </div>
+        <button class="btn-txt" onclick="window.location.href='contact.html'">book a call →</button>
+      </div>
+      <div class="work-grid reveal">
+        <div class="work-card">
+          <div class="work-img"><span class="work-img-txt">Veloiz Travels</span></div>
+          <div class="work-meta">
+            <div class="work-tag-sm">Travel Agency</div>
+            <div class="work-title-sm">Veloiz Travels <span class="work-arr">→</span></div>
+            <div class="work-desc-sm">Immersive destination pages, seamless booking flow, and a mobile experience that converts.</div>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-img"><span class="work-img-txt">The Daily Café</span></div>
+          <div class="work-meta">
+            <div class="work-tag-sm">Food & Beverage</div>
+            <div class="work-title-sm">The Daily Café <span class="work-arr">→</span></div>
+            <div class="work-desc-sm">Warm, tactile design with an online menu, table reservations, and walk-in directions built in.</div>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-img"><span class="work-img-txt">Apex Fitness</span></div>
+          <div class="work-meta">
+            <div class="work-tag-sm">Health & Fitness</div>
+            <div class="work-title-sm">Apex Fitness <span class="work-arr">→</span></div>
+            <div class="work-desc-sm">High-energy design built to capture leads — class schedules, membership tiers, and instant WhatsApp contact.</div>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-img"><span class="work-img-txt">Clarity Clinic</span></div>
+          <div class="work-meta">
+            <div class="work-tag-sm">Healthcare</div>
+            <div class="work-title-sm">Clarity Clinic <span class="work-arr">→</span></div>
+            <div class="work-desc-sm">Calm, credibility-first design with doctor profiles, patient trust signals, and direct appointment booking.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section class="stmt-sec">
+    <div class="w">
+      <div class="stmt-grid reveal">
+        <div class="stmt-large">
+          <div style="font-weight:500">Most businesses lose customers</div>
+          <div class="grey">before the first conversation.</div>
+          <br>
+          <div class="grey">A website shouldn't just exist.</div>
+          <div class="white">It should build trust.</div>
+        </div>
+        <div class="stmt-bottom">
+          <p class="stmt-desc">We don't just build websites. We create digital assets engineered to drive action and turn visitors into clients.</p>
+          <button class="btn-pill" onclick="window.location.href='contact.html'"><span>start a project →</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-sec">
+    <div class="w">
+      <div class="stats-grid">
+        <div class="stat-cell reveal">
+          <div class="stat-num" data-target="50" data-suffix="+">0</div>
+          <div class="stat-lbl">Sites Launched</div>
+        </div>
+        <div class="stat-cell reveal" style="transition-delay:.08s">
+          <div class="stat-num" data-target="4.9" data-suffix="/5" data-decimal="1">0</div>
+          <div class="stat-lbl">Client Rating</div>
+        </div>
+        <div class="stat-cell reveal" style="transition-delay:.16s">
+          <div class="stat-num" data-target="7" data-suffix=" Days">0</div>
+          <div class="stat-lbl">Fastest Delivery</div>
+        </div>
+        <div class="stat-cell reveal" style="transition-delay:.24s">
+          <div class="stat-num" data-target="100" data-suffix="%">0</div>
+          <div class="stat-lbl">Mobile Responsive</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi-sec" id="testimonials">
+    <div class="w">
+      <div class="testi-header reveal">
+        <div class="sec-eyebrow">Client Love</div>
+        <h2 class="sec-title">Don't just take<br>our word for it.</h2>
+      </div>
+      <div class="testi-grid reveal">
+        <div class="testi-card">
+          <div>
+            <div class="testi-stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testi-quote">"Veloiz completely transformed how our cafe looks online. The site is incredibly fast, and the WhatsApp reservation button they added has brought in more table bookings than we ever had before."</p>
+          </div>
+          <div class="testi-author">
+            <div class="testi-av">R</div>
+            <div class="testi-meta">
+              <span class="testi-name">Rahul Sharma</span>
+              <span class="testi-role">Owner, The Daily Café</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testi-card" style="transition-delay:.1s">
+          <div>
+            <div class="testi-stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testi-quote">"They didn't just build a website; they understood our business. The process was completely headache-free, and we got our new multi-page fitness site launched in just 8 days. Highly recommended."</p>
+          </div>
+          <div class="testi-author">
+            <div class="testi-av">A</div>
+            <div class="testi-meta">
+              <span class="testi-name">Aditi Desai</span>
+              <span class="testi-role">Founder, Apex Fitness</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card" style="transition-delay:.2s">
+          <div>
+            <div class="testi-stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testi-quote">"Most agencies give you endless forms and proposals. Veloiz just got straight to work. The design is absolutely premium and our clients have been complimenting the new look since day one."</p>
+          </div>
+          <div class="testi-author">
+            <div class="testi-av">M</div>
+            <div class="testi-meta">
+              <span class="testi-name">Manoj Nair</span>
+              <span class="testi-role">Director, Clarity Clinic</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-sec" id="pricing">
+    <div class="w">
+      <div class="pricing-header reveal">
+        <div class="sec-eyebrow">Pricing</div>
+        <h2 class="sec-title">Transparent pricing.<br>Zero surprises.</h2>
+        <p class="pricing-sub">No retainers. No lock-in. Pick the scope that fits right now — and scale when your business demands it.</p>
+      </div>
+      <div class="pricing-grid reveal">
+        <div class="p-card">
+          <div class="p-name">Starter</div>
+          <div class="p-price">₹4,999</div>
+          <div class="p-period">one-time · 3–7 business days</div>
+          <ul class="p-feats">
+            <li>Single-page premium website</li>
+            <li>Premium custom design</li>
+            <li>Mobile responsive</li>
+            <li>WhatsApp integration</li>
+            <li>Contact form & Google Maps</li>
+            <li>Basic SEO + SSL security</li>
+            <li>Domain registration (1 year)</li>
+            <li>1 revision round</li>
+            <li>3 months free maintenance</li>
+          </ul>
+          <button class="p-btn" onclick="window.location.href='contact.html'"><span>book a free call</span></button>
+        </div>
+        <div class="p-card feat">
+          <div class="p-name">Business</div>
+          <div class="p-price">₹9,999</div>
+          <div class="p-period">one-time · 7–15 business days</div>
+          <ul class="p-feats">
+            <li>Everything in Starter</li>
+            <li>Multi-page custom structure</li>
+            <li>Premium UI/UX design</li>
+            <li>Gallery & testimonials sections</li>
+            <li>Competitor research</li>
+            <li>Conversion-focused design</li>
+            <li>Enhanced SEO structure</li>
+            <li>2 revision rounds</li>
+            <li>30 days priority support</li>
+            <li>3 months free maintenance</li>
+          </ul>
+          <button class="p-btn" onclick="window.location.href='contact.html'"><span>book a free call</span></button>
+        </div>
+        <div class="p-card">
+          <div class="p-name">Custom</div>
+          <div class="p-price">₹19,999+</div>
+          <div class="p-period">scoped per project · 15–30+ days</div>
+          <ul class="p-feats">
+            <li>Everything in Business</li>
+            <li>Booking systems & blogs</li>
+            <li>CMS integration</li>
+            <li>User accounts & dashboards</li>
+            <li>Advanced custom functionality</li>
+          </ul>
+          <button class="p-btn" onclick="window.location.href='contact.html'"><span>book a free call</span></button>
+        </div>
+      </div>
+      <div class="addons">Add-ons: Extra page ₹999/pg &nbsp;·&nbsp; Google Business Profile setup ₹799 &nbsp;·&nbsp; Extra revision round ₹499 &nbsp;·&nbsp; Care plan ₹499/mo after 3 free months</div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-sec" id="faq">
+    <div class="w">
+      <div class="faq-layout">
+        <div class="reveal">
+          <div class="sec-eyebrow">FAQ</div>
+          <h2 class="sec-title">Good questions.<br>Straight answers.</h2>
+          <p class="faq-hint">Something we haven't covered? Book a call — no pitch, no pressure.</p>
+          <button class="btn-pill" style="margin-top:28px" onclick="window.location.href='contact.html'"><span>let's talk →</span></button>
+        </div>
+        <div class="faq-list reveal" style="transition-delay:.1s">
+          <div class="faq-item open">
+            <button class="faq-q" onclick="toggleFaq(this)">Do you only build new websites?<span class="faq-plus">+</span></button>
+            <div class="faq-a">Not at all. We do new builds and redesigns in equal measure. If your existing site isn't working hard enough for your business, we'll fix that.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">How soon can we get started?<span class="faq-plus">+</span></button>
+            <div class="faq-a">Within 48–72 hours of your advance and brief. Starter projects often kick off the same week. We move quickly because your time matters too.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">What's included in each package?<span class="faq-plus">+</span></button>
+            <div class="faq-a">Every package covers design, development, mobile optimisation, SEO basics, and 30 days of post-launch support. Higher tiers add more pages, custom features, and closer collaboration.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">How does payment work?<span class="faq-plus">+</span></button>
+            <div class="faq-a">50% to start, 50% on delivery. Everything agreed in writing before a single pixel is touched. No hidden charges. No awkward surprises at the end.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-final" id="contact">
+    <div class="w" style="text-align:center">
+      <div class="cta-scarcity reveal"><span class="cta-s-dot"></span>Limited Spots · Taking on new projects now</div>
+      <h2 class="cta-title reveal" style="transition-delay:.1s">Your next chapter<br>starts here.</h2>
+      <p class="cta-sub-txt reveal" style="transition-delay:.2s">A 30-minute conversation. No slides, no pitch. Just an honest look at what your business needs online.</p>
+      <div class="cta-actions reveal" style="transition-delay:.3s">
+        <a href="https://wa.me/919272376594?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business." target="_blank" class="btn-pill" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px"><span>Chat on WhatsApp</span></a>
+        <a href="mailto:moizshaikh.develops@gmail.com" class="btn-txt" style="text-decoration:none">moizshaikh.develops@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="w">
+      <div class="footer-top">
+        <div>
+          <div class="f-brand-name">Veloiz Studios</div>
+          <p class="f-tagline">We build websites that mean business. Sharp design, real results.</p>
+        </div>
+        <div>
+          <div class="f-col-label">Contact</div>
+          <div class="f-links">
+            <a href="https://wa.me/919272376594?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business." target="_blank">WhatsApp</a>
+            <a href="mailto:moizshaikh.develops@gmail.com">moizshaikh.develops@gmail.com</a>
+            <a href="tel:+919272376594">+91 92723 76594</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+          <span class="f-copy">© 2026 Veloiz Studios. All rights reserved.</span>
+          <a href="privacy.html" style="font-size:12px;color:rgba(255,255,255,.3);text-decoration:none">Privacy Policy</a>
+          <a href="terms.html" style="font-size:12px;color:rgba(255,255,255,.3);text-decoration:none">Terms & Conditions</a>
+        </div>
+        <div class="f-social">
+          <a href="https://www.instagram.com/veloizstudios/" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/company/veloiz-studios/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+// CUSTOM CURSOR
+const dot=document.getElementById('cur-dot'),ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+function animRing(){rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)}
+animRing();
+document.querySelectorAll('a,button,.work-card,.h-tag,.role-pill,.th-cell').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hovering'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hovering'));
+});
+
+// NAV SCROLL
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
+});
+
+// HERO CANVAS — particle field
+const cvs=document.getElementById('heroCvs');
+const ctx=cvs.getContext('2d');
+function resizeCvs(){cvs.width=cvs.offsetWidth;cvs.height=cvs.offsetHeight}
+resizeCvs();
+window.addEventListener('resize',resizeCvs);
+const pts=Array.from({length:60},()=>({x:Math.random(),y:Math.random(),vx:(Math.random()-.5)*.0003,vy:(Math.random()-.5)*.0003,r:Math.random()*1.2+.3}));
+function drawHero(){
+  const w=cvs.width,h=cvs.height;
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle='rgba(10,10,10,1)';ctx.fillRect(0,0,w,h);
+  pts.forEach(p=>{
+    p.x=(p.x+p.vx+1)%1;p.y=(p.y+p.vy+1)%1;
+    ctx.beginPath();ctx.arc(p.x*w,p.y*h,p.r,0,Math.PI*2);
+    ctx.fillStyle='rgba(255,255,255,0.25)';ctx.fill();
+  });
+  pts.forEach((a,i)=>pts.slice(i+1).forEach(b=>{
+    const dx=(a.x-b.x)*cvs.width,dy=(a.y-b.y)*cvs.height,d=Math.sqrt(dx*dx+dy*dy);
+    if(d<120){ctx.beginPath();ctx.moveTo(a.x*w,a.y*h);ctx.lineTo(b.x*w,b.y*h);ctx.strokeStyle=`rgba(255,255,255,${.06*(1-d/120)})`;ctx.lineWidth=.5;ctx.stroke()}
+  }));
+  requestAnimationFrame(drawHero);
+}
+drawHero();
+
+// STATUS DOT PULSE
+const tdot=document.getElementById('tag-dot');
+let tpulse=0;
+function pulseDot(){tpulse+=.04;tdot.style.opacity=.5+Math.sin(tpulse)*.5;requestAnimationFrame(pulseDot)}
+pulseDot();
+
+// SCROLL REVEALS
+const revEls=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+revEls.forEach(el=>io.observe(el));
+
+// PROCESS LINE REVEAL
+const procRows=document.querySelectorAll('.proc-row');
+const pio=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');pio.unobserve(e.target)}});
+},{threshold:.3});
+procRows.forEach(r=>pio.observe(r));
+
+// STAT COUNTERS
+function animCount(el){
+  const target=parseFloat(el.dataset.target);
+  const suffix=el.dataset.suffix||'';
+  const dec=parseInt(el.dataset.decimal||0);
+  const dur=1400;const start=performance.now();
+  function upd(now){
+    const p=Math.min((now-start)/dur,1);
+    const ease=1-Math.pow(1-p,3);
+    const val=(target*ease);
+    el.textContent=(dec?val.toFixed(dec):Math.round(val))+suffix;
+    if(p<1)requestAnimationFrame(upd);
+  }
+  requestAnimationFrame(upd);
+}
+const statEls=document.querySelectorAll('.stat-num[data-target]');
+const sio=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){animCount(e.target);sio.unobserve(e.target)}});
+},{threshold:.5});
+statEls.forEach(el=>sio.observe(el));
+
+// FAQ
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// SCARCITY DOT PULSE
+const sdot=document.querySelector('.cta-s-dot');
+if(sdot){let sp=0;function pulseS(){sp+=.05;sdot.style.opacity=.4+Math.sin(sp)*.6;requestAnimationFrame(pulseS)}pulseS();}
+
+// FEATURED PRICING BORDER PULSE
+const fc=document.querySelector('.p-card.feat');
+if(fc){let fp=0;function pulseF(){fp+=.025;fc.style.borderTopColor=`rgba(255,255,255,${.12+Math.sin(fp)*.12})`;requestAnimationFrame(pulseF)}pulseF();}
+
+// MOBILE MENU
+const menuBtn=document.getElementById('menu-btn');
+if(menuBtn){
+  menuBtn.addEventListener('click',()=>document.getElementById('nav').classList.toggle('mobile-open'));
+  document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>document.getElementById('nav').classList.remove('mobile-open')));
+}
+</script>
+

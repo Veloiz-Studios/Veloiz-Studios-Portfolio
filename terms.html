@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms & Conditions — Veloiz Studios</title>
+  <meta name="description" content="Terms and Conditions for Veloiz Studios.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#000;color:#fff;font-family:'Inter',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden}
+.w{max-width:1060px;margin:0 auto;padding:0 40px}
+#cur-dot{position:fixed;width:7px;height:7px;background:#fff;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference}
+#cur-ring{position:fixed;width:30px;height:30px;border:1px solid rgba(255,255,255,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s;mix-blend-mode:difference}
+body.hovering #cur-ring{width:44px;height:44px;background:rgba(255,255,255,.06)}
+body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;border-bottom:1px solid transparent;transition:background .4s,border-color .4s}
+.nav.scrolled{background:rgba(0,0,0,.82);backdrop-filter:blur(14px);border-bottom-color:rgba(255,255,255,.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-logo{font-size:14px;font-weight:600;letter-spacing:.04em;color:#fff;text-decoration:none;transition:letter-spacing .3s}
+.nav-logo:hover{letter-spacing:.1em}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:rgba(255,255,255,.45);font-size:13px;text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:#fff}
+
+.page-hero{padding:140px 0 72px;border-bottom:1px solid rgba(255,255,255,.07)}
+.page-title{font-size:clamp(42px,6vw,80px);font-weight:600;line-height:1.05;letter-spacing:-.04em;margin-bottom:20px}
+.page-sub{font-size:16px;color:rgba(255,255,255,.4);max-width:460px;line-height:1.75}
+
+.legal-content{padding:80px 0 120px;max-width:760px;margin:0 auto}
+.legal-content h2{font-size:24px;font-weight:600;margin:48px 0 16px;letter-spacing:-.02em}
+.legal-content p{color:rgba(255,255,255,.65);margin-bottom:16px;font-size:15px;line-height:1.8}
+.legal-content ul{margin:0 0 24px 24px;color:rgba(255,255,255,.65)}
+.legal-content li{margin-bottom:8px}
+
+.footer{padding:44px 0 28px;border-top:1px solid rgba(255,255,255,.07)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+.f-copy{font-size:12px;color:rgba(255,255,255,.2)}
+.f-back{font-size:12px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.f-back:hover{color:#fff}
+
+.menu-btn{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:8px}
+.menu-btn svg{width:24px;height:24px}
+
+@media(max-width:768px){
+  .w{padding:0 20px}
+  /* Mobile Nav */
+  .menu-btn{display:block}
+  .nav-links{position:absolute;top:60px;left:0;right:0;background:rgba(0,0,0,0.95);backdrop-filter:blur(10px);flex-direction:column;padding:32px 20px;border-bottom:1px solid rgba(255,255,255,.07);gap:24px;display:none}
+  .nav.mobile-open .nav-links{display:flex}
+  .nav.mobile-open{background:rgba(0,0,0,0.95)}
+  
+  /* Footer */
+  .footer{padding-bottom:100px}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:20px}
+}
+</style>
+</head>
+<body>
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<nav class="nav" id="nav">
+  <div class="w"><div class="nav-inner">
+    <a href="index.html" class="nav-logo">Veloiz Studios</a>
+    <button class="menu-btn" id="menu-btn" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <div class="nav-links">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#process">Approach</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div></div>
+</nav>
+
+<section class="page-hero">
+  <div class="w">
+    <h1 class="page-title">Terms &<br>Conditions.</h1>
+    <p class="page-sub">Last updated: June 2026. The rules and guidelines for working with Veloiz Studios.</p>
+  </div>
+</section>
+
+<section class="legal-content">
+  <div class="w">
+    <h2>1. Introduction</h2>
+    <p>Welcome to Veloiz Studios. By accessing our website and using our services, you agree to be bound by the following Terms and Conditions. Please read them carefully.</p>
+
+    <h2>2. Services</h2>
+    <p>Veloiz Studios provides web design, development, and digital consulting services. The specific scope, timeline, and cost of any project will be outlined in a separate, customized proposal and contract provided to the client.</p>
+
+    <h2>3. Payment Terms</h2>
+    <p>Payment schedules will be detailed in your project contract. Generally, we require an upfront deposit before work commences, with the remaining balance due upon project completion or at specific milestones. All payments are non-refundable unless otherwise specified in writing.</p>
+
+    <h2>4. Client Responsibilities</h2>
+    <p>To ensure timely delivery, clients are expected to provide necessary assets (text, images, branding guidelines) promptly. Delays in receiving client materials may result in project timeline extensions.</p>
+
+    <h2>5. Intellectual Property</h2>
+    <p>Upon full payment, the client owns the final website design and code. Veloiz Studios reserves the right to showcase the completed work in our portfolio and marketing materials unless a Non-Disclosure Agreement (NDA) is signed prior to the project start.</p>
+
+    <h2>6. Revisions</h2>
+    <p>Each project includes a specific number of revision rounds, as outlined in your proposal. Additional revisions beyond the agreed scope may be subject to additional hourly charges.</p>
+
+    <h2>7. Limitation of Liability</h2>
+    <p>Veloiz Studios is not liable for any indirect, incidental, or consequential damages arising out of the use or inability to use our services or websites created by us.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="w">
+    <div class="footer-inner">
+      <span class="f-copy">&copy; 2026 Veloiz Studios. All rights reserved.</span>
+      <div class="f-social" style="display:flex;gap:16px;font-size:13px">
+        <a href="https://www.instagram.com/veloizstudios/" target="_blank" style="color:rgba(255,255,255,.65);text-decoration:none">Instagram</a>
+        <a href="https://www.linkedin.com/company/veloiz-studios/" target="_blank" style="color:rgba(255,255,255,.65);text-decoration:none">LinkedIn</a>
+        <a href="index.html" class="f-back" style="color:rgba(255,255,255,.3);text-decoration:none">&larr; back to home</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const dot=document.getElementById('cur-dot'),ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+(function animR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animR)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hovering'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hovering'));
+});
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>50));
+
+// MOBILE MENU
+const menuBtn=document.getElementById('menu-btn');
+if(menuBtn){
+  menuBtn.addEventListener('click',()=>document.getElementById('nav').classList.toggle('mobile-open'));
+  document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>document.getElementById('nav').classList.remove('mobile-open')));
+}
+</script>
+</body>
+</html>
