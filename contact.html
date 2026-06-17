@@ -3,22 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book a Call — Veloiz Studios</title>
-  <meta name="description" content="Tell us about your business and book a free 15-minute call with Veloiz Studios.">
+  <title>Book a Call | Veloiz Studios - Web Design Agency</title>
+  <meta name="description" content="Tell us about your business and book a free 15-minute call with Veloiz Studios. Let's discuss your next web design project.">
   <meta name="keywords" content="contact veloiz studios, book a call, web design inquiry, pune, india">
   <meta name="author" content="Veloiz Studios">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Book a Call — Veloiz Studios">
-  <meta property="og:description" content="Tell us about your business and book a free 15-minute call with Veloiz Studios.">
+  <meta property="og:title" content="Book a Call | Veloiz Studios">
+  <meta property="og:description" content="Tell us about your business and book a free 15-minute call with Veloiz Studios. Let's discuss your next project.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://veloizstudios.in/contact.html">
+  <meta property="og:url" content="https://veloizstudios.in/contact">
   <meta property="og:image" content="https://veloizstudios.in/og-image.jpg">
   <meta property="og:site_name" content="Veloiz Studios">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Book a Call — Veloiz Studios">
+  <meta name="twitter:title" content="Book a Call | Veloiz Studios">
   <meta name="twitter:description" content="Tell us about your business and book a free 15-minute call with Veloiz Studios.">
   <meta name="twitter:image" content="https://veloizstudios.in/og-image.jpg">
-  <link rel="canonical" href="https://veloizstudios.in/contact.html">
+  <link rel="canonical" href="https://veloizstudios.in/contact">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "WebDesignCompany",
+      "@id": "https://veloizstudios.in/#organization",
+      "name": "Veloiz Studios",
+      "url": "https://veloizstudios.in",
+      "telephone": "+91-9272376594",
+      "email": "moizshaikh.develops@gmail.com"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -146,15 +160,15 @@ select option{background:#111}
 
 <nav class="nav" id="nav">
   <div class="w"><div class="nav-inner">
-    <a href="index.html" class="nav-logo">Veloiz Studios</a>
+    <a href="/" class="nav-logo">Veloiz Studios</a>
     <button class="menu-btn" id="menu-btn" aria-label="Menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
     <div class="nav-links">
-      <a href="index.html#work">Work</a>
-      <a href="index.html#process">Approach</a>
-      <a href="index.html#pricing">Pricing</a>
-      <a href="contact.html" class="active">Contact</a>
+      <a href="/#work">Work</a>
+      <a href="/#process">Approach</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/contact" class="active">Contact</a>
     </div>
   </div></div>
 </nav>
@@ -277,7 +291,7 @@ select option{background:#111}
       <div class="f-social" style="display:flex;gap:16px;font-size:13px">
         <a href="https://www.instagram.com/veloizstudios/" target="_blank" style="color:rgba(255,255,255,.65);text-decoration:none">Instagram</a>
         <a href="https://www.linkedin.com/company/veloiz-studios/" target="_blank" style="color:rgba(255,255,255,.65);text-decoration:none">LinkedIn</a>
-        <a href="index.html" class="f-back" style="color:rgba(255,255,255,.3);text-decoration:none">&larr; back to home</a>
+        <a href="/" class="f-back" style="color:rgba(255,255,255,.3);text-decoration:none">&larr; back to home</a>
       </div>
     </div>
   </div>
@@ -289,7 +303,13 @@ select option{background:#111}
 const dot=document.getElementById('cur-dot'),ring=document.getElementById('cur-ring');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
-(function animR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animR)})();
+(function animR(){
+  if (window.innerWidth >= 768) {
+    rx+=(mx-rx)*.1;ry+=(my-ry)*.1;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+  }
+  requestAnimationFrame(animR);
+})();
 document.querySelectorAll('a,button,input,textarea,select').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('hovering'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('hovering'));
