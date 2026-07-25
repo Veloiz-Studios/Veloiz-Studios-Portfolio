@@ -5,169 +5,345 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="/favicon.png">
   <title>Apex Advisory Case Study | Veloiz Studios</title>
-  
-  <!-- SEO & Meta Tags -->
-  <meta name="description" content="Case Study: How Veloiz Studios architected trust and conversion for Apex Advisory, a high-ticket corporate financial advisory firm.">
-  <meta name="robots" content="index, follow">
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
-          }
-        }
-      }
-    }
-  </script>
+  <meta name="description" content="Case Study: How Veloiz Studios architected trust and conversion for Apex Advisory.">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body,#vs{background:#000;color:#fff;font-family:'Inter',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden}
+.w{max-width:1060px;margin:0 auto;padding:0 40px}
+.divider{border-top:1px solid rgba(255,255,255,0.07)}
+
+/* CURSOR */
+#cur-dot{position:fixed;width:7px;height:7px;background:#fff;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s;mix-blend-mode:difference}
+#cur-ring{position:fixed;width:30px;height:30px;border:1px solid rgba(255,255,255,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s;mix-blend-mode:difference}
+body.hovering #cur-ring{width:44px;height:44px;background:rgba(255,255,255,0.06)}
+body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(0,0,0,0.82);backdrop-filter:blur(14px);border-bottom-color:rgba(255,255,255,0.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-logo{font-size:14px;font-weight:600;letter-spacing:.04em;color:#fff;cursor:pointer;transition:letter-spacing .3s;text-decoration:none}
+.nav-logo:hover{letter-spacing:.1em}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:rgba(255,255,255,.45);font-size:13px;text-decoration:none;transition:color .2s;cursor:pointer}
+.nav-links a:hover{color:#fff}
+.nav-cta{border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.75);padding:8px 18px;font-size:12px;border-radius:100px;cursor:pointer;transition:border-color .2s,color .2s,transform .2s;background:transparent;font-family:inherit}
+.nav-cta:hover{border-color:rgba(255,255,255,.6);color:#fff;transform:scale(1.02)}
+
+/* BUTTONS & TAGS */
+.btn-pill{border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.75);padding:10px 22px;font-size:13px;border-radius:100px;cursor:pointer;transition:all .2s;background:transparent;font-family:inherit;position:relative;overflow:hidden}
+.btn-pill::before{content:'';position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .3s ease;z-index:0}
+.btn-pill span{position:relative;z-index:1}
+.btn-pill:hover{border-color:#fff;color:#000}
+.btn-pill:hover::before{transform:scaleX(1)}
+.btn-txt{color:rgba(255,255,255,.45);font-size:13px;cursor:pointer;transition:color .2s;background:none;border:none;font-family:inherit}
+.btn-txt:hover{color:#fff}
+
+/* SECTIONS */
+.sec{padding:100px 0}
+.sec-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:48px;display:flex;align-items:center;gap:14px}
+.sec-eyebrow::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.06)}
+.sec-title{font-size:clamp(26px,4vw,48px);font-weight:600;letter-spacing:-.03em;line-height:1.15}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* HERO (CASE STUDY) */
+.cs-hero{padding-top:140px;padding-bottom:60px}
+.cs-title{font-size:clamp(32px,5vw,64px);font-weight:600;letter-spacing:-.04em;line-height:1.05;margin-bottom:40px;max-width:900px}
+.cs-meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;border-top:1px solid rgba(255,255,255,.07);padding-top:40px;margin-top:60px}
+.cs-meta-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.cs-meta-value{font-size:14px;color:rgba(255,255,255,.7);line-height:1.6}
+
+/* 3 HEADLINES */
+.three-h{padding:80px 0;border-top:1px solid rgba(255,255,255,.07)}
+.three-h-inner{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid rgba(255,255,255,.07)}
+.th-cell{padding:48px 40px;border-right:1px solid rgba(255,255,255,.07);transition:background .25s}
+.th-cell:last-child{border-right:none}
+.th-cell:hover{background:rgba(255,255,255,.02)}
+.th-num{font-size:11px;color:rgba(255,255,255,.2);letter-spacing:.18em;margin-bottom:20px;font-family:monospace}
+.th-word{font-size:clamp(20px,2vw,28px);font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-bottom:16px}
+.th-desc{font-size:13px;color:rgba(255,255,255,.35);line-height:1.7}
+
+/* ABOUT PARAGRAPH */
+.about-p{padding:80px 0;border-top:1px solid rgba(255,255,255,.07)}
+.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+.about-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:24px}
+.about-quote{font-size:clamp(18px,2.5vw,26px);font-weight:500;letter-spacing:-.02em;line-height:1.4;color:rgba(255,255,255,.85)}
+.about-body{font-size:15px;color:rgba(255,255,255,.4);line-height:1.8;margin-bottom:32px}
+
+/* STATS */
+.stats-sec{padding:80px 0;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07)}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.stat-cell{padding:0 40px;border-right:1px solid rgba(255,255,255,.07);text-align:left}
+.stat-cell:first-child{padding-left:0}
+.stat-cell:last-child{border-right:none}
+.stat-num{font-size:clamp(32px,4vw,52px);font-weight:600;letter-spacing:-.04em;line-height:1}
+.stat-lbl{font-size:13px;color:rgba(255,255,255,.4);margin-top:16px;line-height:1.6}
+
+/* FINAL CTA */
+.cta-final{padding:140px 0;border-top:1px solid rgba(255,255,255,.07);text-align:center}
+.cta-title{font-size:clamp(36px,6vw,72px);font-weight:600;letter-spacing:-.04em;line-height:1.05;margin-bottom:40px}
+.cta-actions{display:flex;justify-content:center;gap:16px;align-items:center}
+
+/* FOOTER */
+.footer{padding:64px 0 40px;border-top:1px solid rgba(255,255,255,.07)}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr;gap:48px;margin-bottom:56px}
+.f-brand-name{font-size:14px;font-weight:600;letter-spacing:.04em;margin-bottom:10px}
+.f-tagline{font-size:13px;color:rgba(255,255,255,.3);line-height:1.7;max-width:210px}
+.f-col-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:18px}
+.f-links{display:flex;flex-direction:column;gap:10px}
+.f-links a{font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;cursor:pointer}
+.f-links a:hover{color:#fff}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid rgba(255,255,255,.05)}
+.f-copy{font-size:12px;color:rgba(255,255,255,.2)}
+.f-social{display:flex;gap:20px}
+.f-social a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s;cursor:pointer}
+.f-social a:hover{color:rgba(255,255,255,.7)}
+
+.menu-btn{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:8px}
+.menu-btn svg{width:24px;height:24px}
+
+@media(max-width:768px){
+  .w{padding:0 20px}
+  .about-grid,.three-h-inner,.footer-top{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr}
+  .stat-cell{padding:30px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}
+  .stat-cell:last-child{border-bottom:none}
+  .th-cell{border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}
+  .menu-btn{display:block}
+  .nav-links{position:absolute;top:60px;left:0;right:0;background:rgba(0,0,0,0.95);backdrop-filter:blur(10px);flex-direction:column;padding:32px 20px;border-bottom:1px solid rgba(255,255,255,.07);gap:24px;display:none}
+  .nav.mobile-open .nav-links{display:flex}
+  .nav.mobile-open{background:rgba(0,0,0,0.95)}
+  .nav-cta{width:100%;text-align:center}
+  .footer{padding-bottom:100px}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:20px}
+}
+  </style>
 </head>
-<body class="bg-slate-50 font-sans text-slate-800 antialiased selection:bg-blue-600 selection:text-white">
+<body>
+<div id="vs">
+  <div id="cur-dot"></div>
+  <div id="cur-ring"></div>
 
-  <!-- NAV (Minimal Back Link) -->
-  <nav class="w-full max-w-6xl mx-auto px-6 py-8">
-    <a href="index.html" class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">
-      &larr; Back to Portfolio
-    </a>
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="w"><div class="nav-inner">
+      <a href="index.html" class="nav-logo">Veloiz Studios</a>
+      <button class="menu-btn" id="menu-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <div class="nav-links">
+        <a href="index.html">&larr; Back to Portfolio</a>
+        <a href="contact.html" class="nav-cta">Book A Free Call</a>
+      </div>
+    </div></div>
   </nav>
-
-  <!-- 1. Page Header / Hero -->
-  <header class="w-full max-w-6xl mx-auto px-6 pt-12 pb-24">
-    <div class="max-w-4xl">
-      <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs uppercase px-3 py-1 rounded mb-6 inline-block">01 // CASE STUDY — FINTECH & ENTERPRISE TAX</span>
-      <h1 class="font-sans font-bold text-3xl sm:text-5xl text-slate-900 tracking-tight leading-tight max-w-4xl mb-16">
-        Apex Advisory: Architecting Trust & Conversion for High-Ticket Corporate Advisory
-      </h1>
+  
+  <!-- HERO (CASE STUDY HEADER) -->
+  <section class="cs-hero reveal">
+    <div class="w">
+      <div class="sec-eyebrow">Case Study — Fintech & Enterprise Tax</div>
+      <h1 class="cs-title">Apex Advisory: Architecting Trust & Conversion for High-Ticket Corporate Advisory</h1>
       
-      <!-- Metadata Bar -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 py-8 border-y border-slate-200">
+      <div class="cs-meta-grid">
         <div>
-          <div class="font-mono text-xs text-slate-500 uppercase tracking-widest mb-2">Client</div>
-          <div class="font-sans text-slate-900 font-semibold">Apex Advisory</div>
+          <div class="cs-meta-label">Client</div>
+          <div class="cs-meta-value" style="font-weight:500;color:#fff;">Apex Advisory</div>
         </div>
         <div>
-          <div class="font-mono text-xs text-slate-500 uppercase tracking-widest mb-2">Services</div>
-          <div class="font-sans text-slate-600 text-sm leading-relaxed">Brand Strategy, UI/UX Design, Next.js Development, Interactive Calculators</div>
+          <div class="cs-meta-label">Services</div>
+          <div class="cs-meta-value">Brand Strategy, UI/UX Design,<br>Next.js Dev, Calculators</div>
         </div>
         <div>
-          <div class="font-mono text-xs text-slate-500 uppercase tracking-widest mb-2">Tech Stack</div>
-          <div class="font-sans text-slate-600 text-sm leading-relaxed">Next.js, TypeScript, Tailwind CSS, Custom CSS Sticky Engine</div>
+          <div class="cs-meta-label">Tech Stack</div>
+          <div class="cs-meta-value">Next.js, TypeScript, Tailwind,<br>Custom CSS Sticky Engine</div>
         </div>
         <div>
-          <div class="font-mono text-xs text-slate-500 uppercase tracking-widest mb-2">Live Link</div>
-          <a href="https://apex-advisory-concept.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2.5 bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition-colors rounded-full">
-            View Live Site ↗
-          </a>
+          <div class="cs-meta-label">Live Link</div>
+          <button class="btn-pill" onclick="window.open('https://apex-advisory-concept.vercel.app/', '_blank')"><span>View Live Site ↗</span></button>
         </div>
       </div>
     </div>
-  </header>
+  </section>
 
   <!-- Hero Image -->
-  <section class="w-full max-w-6xl mx-auto px-6 mb-24">
-    <div class="aspect-[16/9] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-sm border border-slate-200/50">
-      <img src="https://image.thum.io/get/width/1200/crop/800/https://apex-advisory-concept.vercel.app/" alt="Apex Advisory Preview" class="w-full h-full object-cover">
-    </div>
-  </section>
-
-  <!-- 2. Section 01 // The Challenge & Opportunity -->
-  <section class="w-full max-w-6xl mx-auto px-6 mb-24 grid grid-cols-1 md:grid-cols-12 gap-12">
-    <div class="md:col-span-4">
-      <h2 class="font-mono text-xs text-slate-500 tracking-widest uppercase sticky top-8">01 // THE CHALLENGE</h2>
-    </div>
-    <div class="md:col-span-8 max-w-none">
-      <h3 class="font-sans font-semibold text-xl sm:text-2xl text-slate-900 tracking-tight mb-6">High-ticket financial advisory faces a crisis of digital credibility.</h3>
-      <div class="font-sans text-slate-600 text-sm sm:text-base leading-relaxed space-y-6">
-        <p>The industry standard is riddled with outdated conventions—generic stock photos of handshakes, clunky PDF brochures, and uninspired layouts. For a firm handling millions in corporate tax optimization, their digital presence often felt like an afterthought.</p>
-        <p>Complex service offerings, such as IND-AS compliance and enterprise structuring, are notoriously difficult to communicate to busy executive decision-makers. The friction in the user journey meant that pre-qualifying leads before a consultation call was almost impossible, leading to wasted hours on mismatched inquiries.</p>
+  <section class="sec reveal" style="padding-top:0;">
+    <div class="w">
+      <div style="width:100%; aspect-ratio:16/9; background:#0e0e0e; overflow:hidden; border:1px solid rgba(255,255,255,.07);">
+        <img src="https://image.thum.io/get/width/1200/crop/800/https://apex-advisory-concept.vercel.app/" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.9);" alt="Apex Advisory Preview">
       </div>
     </div>
   </section>
 
-  <!-- 3. Section 02 // Technical Execution & System Architecture -->
-  <section class="w-full max-w-6xl mx-auto px-6 mb-24">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
-      <div class="md:col-span-4">
-        <h2 class="font-mono text-xs text-slate-500 tracking-widest uppercase sticky top-8">02 // TECHNICAL EXECUTION</h2>
-      </div>
-      <div class="md:col-span-8">
-        <h3 class="font-sans font-semibold text-xl sm:text-2xl text-slate-900 tracking-tight">Precision engineering met editorial design.</h3>
-      </div>
-    </div>
-
-    <!-- Grid of 3 Highlight Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Card A -->
-      <div class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 hover:border-slate-300 transition-all relative overflow-hidden group">
-        <div class="absolute -right-4 -bottom-8 text-9xl font-sans text-slate-50 font-bold group-hover:text-slate-100 transition-colors z-0 select-none">A</div>
-        <div class="relative z-10">
-          <h4 class="font-sans font-semibold text-lg text-slate-900 tracking-tight mb-4">Stacked Sticky Capabilities Engine</h4>
-          <p class="font-sans text-slate-600 text-sm sm:text-base leading-relaxed mb-6">A custom CSS sticky card-stacking mechanic that elegantly unveils services as the user scrolls, featuring monospaced metadata and oversized watermark indices to guide the eye.</p>
+  <!-- Challenge -->
+  <section class="about-p divider">
+    <div class="w">
+      <div class="about-grid">
+        <div class="reveal">
+          <div class="about-label">01 // The Challenge</div>
         </div>
-      </div>
-      <!-- Card B -->
-      <div class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 hover:border-slate-300 transition-all relative overflow-hidden group">
-        <div class="absolute -right-4 -bottom-8 text-9xl font-sans text-slate-50 font-bold group-hover:text-slate-100 transition-colors z-0 select-none">B</div>
-        <div class="relative z-10">
-          <h4 class="font-sans font-semibold text-lg text-slate-900 tracking-tight mb-4">Interactive Corporate Tax Estimator</h4>
-          <p class="font-sans text-slate-600 text-sm sm:text-base leading-relaxed mb-6">A real-time, client-side calculator engineered to let CFOs dynamically select entity types and turnover brackets, instantly viewing required compliance tiers without page reloads.</p>
-        </div>
-      </div>
-      <!-- Card C -->
-      <div class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 hover:border-slate-300 transition-all relative overflow-hidden group">
-        <div class="absolute -right-4 -bottom-8 text-9xl font-sans text-slate-50 font-bold group-hover:text-slate-100 transition-colors z-0 select-none">C</div>
-        <div class="relative z-10">
-          <h4 class="font-sans font-semibold text-lg text-slate-900 tracking-tight mb-4">Wall Street Editorial Aesthetics</h4>
-          <p class="font-sans text-slate-600 text-sm sm:text-base leading-relaxed mb-6">Leveraged high-contrast typography paired with stark monospaced badges (<span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-[10px] uppercase px-2 py-0.5 rounded">IND-AS COMPLIANT</span>) and exactly zero stock photos for uncompromising trust.</p>
+        <div class="reveal" style="transition-delay:.1s">
+          <p class="about-quote" style="margin-bottom:32px;">High-ticket financial advisory faces a crisis of digital credibility.</p>
+          <p class="about-body">The industry standard is riddled with outdated conventions—generic stock photos of handshakes, clunky PDF brochures, and uninspired layouts. For a firm handling millions in corporate tax optimization, their digital presence often felt like an afterthought.</p>
+          <p class="about-body" style="margin-bottom:0">Complex service offerings, such as IND-AS compliance and enterprise structuring, are notoriously difficult to communicate to busy executive decision-makers. The friction in the user journey meant that pre-qualifying leads before a consultation call was almost impossible, leading to wasted hours on mismatched inquiries.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. Section 03 // Business Impact Metrics -->
-  <section class="w-full max-w-6xl mx-auto px-6 mb-24">
-    <div class="bg-slate-900 text-white rounded-2xl p-8 sm:p-12 relative overflow-hidden shadow-xl">
-      <!-- Decorative background glow -->
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-600/20 blur-[100px] rounded-full pointer-events-none"></div>
+  <!-- Execution -->
+  <section class="three-h divider">
+    <div class="w">
+      <div class="about-grid" style="margin-bottom:60px;">
+        <div class="reveal">
+          <div class="about-label">02 // Technical Execution</div>
+        </div>
+        <div class="reveal" style="transition-delay:.1s">
+          <p class="about-quote" style="margin-bottom:0">Precision engineering met editorial design.</p>
+        </div>
+      </div>
       
-      <div class="relative z-10">
-        <h2 class="font-mono text-xs text-slate-400 tracking-widest uppercase mb-12 text-center">03 // Business Impact</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-slate-700/50 text-center">
-          <div class="pt-8 md:pt-0">
-            <div class="text-5xl md:text-6xl font-sans font-bold text-white tracking-tight mb-4">3.5x</div>
-            <p class="font-sans text-slate-400 text-sm sm:text-base leading-relaxed max-w-xs mx-auto">Higher time-on-page via interactive widgets and sticky card mechanics.</p>
-          </div>
-          <div class="pt-8 md:pt-0">
-            <div class="text-5xl md:text-6xl font-sans font-bold text-white tracking-tight mb-4">100%</div>
-            <p class="font-sans text-slate-400 text-sm sm:text-base leading-relaxed max-w-xs mx-auto">Pre-qualified consultation leads with clear budget expectations.</p>
-          </div>
-          <div class="pt-8 md:pt-0">
-            <div class="text-5xl md:text-6xl font-sans font-bold text-white tracking-tight mb-4">$30k+</div>
-            <p class="font-sans text-slate-400 text-sm sm:text-base leading-relaxed max-w-xs mx-auto">Perceived agency design polish positioning the firm alongside global practices.</p>
-          </div>
+      <div class="three-h-inner reveal" style="transition-delay:.2s">
+        <div class="th-cell">
+          <div class="th-num">A</div>
+          <div class="th-word">Sticky Engine</div>
+          <div class="th-desc">A custom CSS sticky card-stacking mechanic that elegantly unveils services as the user scrolls, featuring monospaced metadata and oversized watermark indices.</div>
+        </div>
+        <div class="th-cell">
+          <div class="th-num">B</div>
+          <div class="th-word">Tax Estimator</div>
+          <div class="th-desc">A real-time, client-side calculator engineered to let CFOs dynamically select entity types and turnover brackets without page reloads.</div>
+        </div>
+        <div class="th-cell">
+          <div class="th-num">C</div>
+          <div class="th-word">Editorial Aesthetics</div>
+          <div class="th-desc">Leveraged high-contrast typography paired with stark monospaced badges and exactly zero stock photos for uncompromising trust.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. Call to Action (Bottom Banner) -->
-  <section class="w-full max-w-4xl mx-auto px-6 text-center pb-32">
-    <h2 class="font-sans font-bold text-3xl sm:text-4xl text-slate-900 tracking-tight mb-8">Ready to elevate your brand's digital architecture?</h2>
-    <a href="contact.html" class="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-slate-900 hover:bg-slate-800 rounded-full transition-colors shadow-lg">
-      Schedule a Strategy Call &rarr;
-    </a>
+  <!-- Metrics -->
+  <section class="stats-sec">
+    <div class="w">
+      <div class="stats-grid">
+        <div class="stat-cell reveal">
+          <div class="stat-num" data-target="3.5" data-suffix="x" data-decimal="1">0</div>
+          <div class="stat-lbl">Higher time-on-page via interactive widgets and sticky card mechanics.</div>
+        </div>
+        <div class="stat-cell reveal" style="transition-delay:.08s">
+          <div class="stat-num" data-target="100" data-suffix="%">0</div>
+          <div class="stat-lbl">Pre-qualified consultation leads with clear budget expectations.</div>
+        </div>
+        <div class="stat-cell reveal" style="transition-delay:.16s">
+          <div class="stat-num" data-target="30" data-suffix="k+">0</div>
+          <div class="stat-lbl">Perceived agency design polish positioning the firm alongside global practices.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-final">
+    <div class="w">
+      <h2 class="cta-title reveal">Ready to elevate your brand's digital architecture?</h2>
+      <div class="cta-actions reveal" style="transition-delay:.1s">
+        <button class="btn-pill" onclick="window.location.href='contact.html'"><span>Schedule a Strategy Call →</span></button>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="w-full border-t border-slate-200 py-12">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <p class="text-xs font-mono text-slate-400 uppercase tracking-widest">© 2026 Veloiz Studios. All rights reserved.</p>
+  <footer class="footer">
+    <div class="w">
+      <div class="footer-top">
+        <div>
+          <div class="f-brand-name">Veloiz Studios</div>
+          <p class="f-tagline">We build websites that mean business. Sharp design, real results.</p>
+        </div>
+        <div>
+          <div class="f-col-label">Contact</div>
+          <div class="f-links">
+            <a href="https://wa.me/919272376594?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business." target="_blank">WhatsApp</a>
+            <a href="mailto:moizshaikh.develops@gmail.com">moizshaikh.develops@gmail.com</a>
+            <a href="tel:+919272376594">+91 92723 76594</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+          <span class="f-copy">© 2026 Veloiz Studios. All rights reserved.</span>
+          <a href="privacy.html" style="font-size:12px;color:rgba(255,255,255,.3);text-decoration:none">Privacy Policy</a>
+          <a href="terms.html" style="font-size:12px;color:rgba(255,255,255,.3);text-decoration:none">Terms & Conditions</a>
+        </div>
+        <div class="f-social">
+          <a href="https://www.instagram.com/veloizstudios/" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/company/veloiz-studios/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
     </div>
   </footer>
+</div>
 
+<script>
+// CUSTOM CURSOR
+const dot=document.getElementById('cur-dot'),ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+function animRing(){
+  if (window.innerWidth >= 768) {
+    rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+  }
+  requestAnimationFrame(animRing);
+}
+animRing();
+document.querySelectorAll('a,button,.th-cell,.cs-meta-value').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hovering'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hovering'));
+});
+
+// NAV SCROLL
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
+});
+
+// MOBILE MENU
+const menuBtn=document.getElementById('menu-btn');
+if(menuBtn){
+  menuBtn.addEventListener('click',()=>document.getElementById('nav').classList.toggle('mobile-open'));
+  document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>document.getElementById('nav').classList.remove('mobile-open')));
+}
+
+// SCROLL REVEALS
+const revEls=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+revEls.forEach(el=>io.observe(el));
+
+// STAT COUNTERS
+function animCount(el){
+  const target=parseFloat(el.dataset.target);
+  const suffix=el.dataset.suffix||'';
+  const dec=parseInt(el.dataset.decimal||0);
+  const dur=1400;const start=performance.now();
+  function upd(now){
+    const p=Math.min((now-start)/dur,1);
+    const ease=1-Math.pow(1-p,3);
+    const val=(target*ease);
+    el.textContent=(dec?val.toFixed(dec):Math.round(val))+suffix;
+    if(p<1)requestAnimationFrame(upd);
+  }
+  requestAnimationFrame(upd);
+}
+const statEls=document.querySelectorAll('.stat-num[data-target]');
+const sio=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){animCount(e.target);sio.unobserve(e.target)}});
+},{threshold:.5});
+statEls.forEach(el=>sio.observe(el));
+</script>
 </body>
 </html>
