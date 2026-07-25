@@ -11,13 +11,12 @@
   <meta name="robots" content="index, follow">
   
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            serif: ['"Playfair Display"', 'serif'],
             sans: ['Inter', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
           }
@@ -26,7 +25,7 @@
     }
   </script>
 </head>
-<body class="bg-slate-50 font-sans text-slate-800 antialiased selection:bg-teal-600 selection:text-white">
+<body class="bg-slate-50 font-sans text-slate-800 antialiased selection:bg-blue-600 selection:text-white">
 
   <!-- NAV (Minimal Back Link) -->
   <nav class="w-full max-w-6xl mx-auto px-6 py-8">
@@ -38,8 +37,8 @@
   <!-- 1. Page Header / Hero -->
   <header class="w-full max-w-6xl mx-auto px-6 pt-12 pb-24">
     <div class="max-w-4xl">
-      <span class="font-mono text-xs text-teal-600 tracking-widest uppercase mb-6 block">01 // CASE STUDY — FINTECH & ENTERPRISE TAX</span>
-      <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl text-slate-900 font-semibold tracking-tight leading-tight mb-16">
+      <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs uppercase px-3 py-1 rounded mb-6 inline-block">01 // CASE STUDY — FINTECH & ENTERPRISE TAX</span>
+      <h1 class="font-sans font-bold text-3xl sm:text-5xl text-slate-900 tracking-tight leading-tight max-w-4xl mb-16">
         Apex Advisory: Architecting Trust & Conversion for High-Ticket Corporate Advisory
       </h1>
       
@@ -47,15 +46,15 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 py-8 border-y border-slate-200">
         <div>
           <div class="font-mono text-xs text-slate-500 uppercase tracking-widest mb-2">Client</div>
-          <div class="font-medium text-slate-900">Apex Advisory</div>
+          <div class="font-sans text-slate-900 font-semibold">Apex Advisory</div>
         </div>
         <div>
           <div class="font-mono text-xs text-slate-500 uppercase tracking-widest mb-2">Services</div>
-          <div class="font-medium text-slate-900 text-sm leading-relaxed">Brand Strategy, UI/UX Design, Next.js Development, Interactive Calculators</div>
+          <div class="font-sans text-slate-600 text-sm leading-relaxed">Brand Strategy, UI/UX Design, Next.js Development, Interactive Calculators</div>
         </div>
         <div>
           <div class="font-mono text-xs text-slate-500 uppercase tracking-widest mb-2">Tech Stack</div>
-          <div class="font-medium text-slate-900 text-sm leading-relaxed">Next.js, TypeScript, Tailwind CSS, Custom CSS Sticky Engine</div>
+          <div class="font-sans text-slate-600 text-sm leading-relaxed">Next.js, TypeScript, Tailwind CSS, Custom CSS Sticky Engine</div>
         </div>
         <div>
           <div class="font-mono text-xs text-slate-500 uppercase tracking-widest mb-2">Live Link</div>
@@ -69,7 +68,7 @@
 
   <!-- Hero Image -->
   <section class="w-full max-w-6xl mx-auto px-6 mb-24">
-    <div class="aspect-[16/9] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-xl border border-slate-200/50">
+    <div class="aspect-[16/9] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-sm border border-slate-200/50">
       <img src="https://image.thum.io/get/width/1200/crop/800/https://apex-advisory-concept.vercel.app/" alt="Apex Advisory Preview" class="w-full h-full object-cover">
     </div>
   </section>
@@ -79,10 +78,12 @@
     <div class="md:col-span-4">
       <h2 class="font-mono text-xs text-slate-500 tracking-widest uppercase sticky top-8">01 // THE CHALLENGE</h2>
     </div>
-    <div class="md:col-span-8 prose prose-lg prose-slate max-w-none text-slate-600 leading-relaxed">
-      <p class="text-xl sm:text-2xl font-serif text-slate-900 leading-snug mb-8">High-ticket financial advisory faces a crisis of digital credibility.</p>
-      <p>The industry standard is riddled with outdated conventions—generic stock photos of handshakes, clunky PDF brochures, and uninspired layouts. For a firm handling millions in corporate tax optimization, their digital presence often felt like an afterthought.</p>
-      <p>Complex service offerings, such as IND-AS compliance and enterprise structuring, are notoriously difficult to communicate to busy executive decision-makers. The friction in the user journey meant that pre-qualifying leads before a consultation call was almost impossible, leading to wasted hours on mismatched inquiries.</p>
+    <div class="md:col-span-8 max-w-none">
+      <h3 class="font-sans font-semibold text-xl sm:text-2xl text-slate-900 tracking-tight mb-6">High-ticket financial advisory faces a crisis of digital credibility.</h3>
+      <div class="font-sans text-slate-600 text-sm sm:text-base leading-relaxed space-y-6">
+        <p>The industry standard is riddled with outdated conventions—generic stock photos of handshakes, clunky PDF brochures, and uninspired layouts. For a firm handling millions in corporate tax optimization, their digital presence often felt like an afterthought.</p>
+        <p>Complex service offerings, such as IND-AS compliance and enterprise structuring, are notoriously difficult to communicate to busy executive decision-makers. The friction in the user journey meant that pre-qualifying leads before a consultation call was almost impossible, leading to wasted hours on mismatched inquiries.</p>
+      </div>
     </div>
   </section>
 
@@ -93,56 +94,61 @@
         <h2 class="font-mono text-xs text-slate-500 tracking-widest uppercase sticky top-8">02 // TECHNICAL EXECUTION</h2>
       </div>
       <div class="md:col-span-8">
-        <p class="text-xl sm:text-2xl font-serif text-slate-900 leading-snug">Precision engineering met editorial design.</p>
+        <h3 class="font-sans font-semibold text-xl sm:text-2xl text-slate-900 tracking-tight">Precision engineering met editorial design.</h3>
       </div>
     </div>
 
     <!-- Grid of 3 Highlight Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Card A -->
-      <div class="bg-white p-8 border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-        <div class="absolute -right-4 -bottom-8 text-9xl font-serif text-slate-50 font-bold group-hover:text-slate-100 transition-colors z-0 select-none">A</div>
+      <div class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 hover:border-slate-300 transition-all relative overflow-hidden group">
+        <div class="absolute -right-4 -bottom-8 text-9xl font-sans text-slate-50 font-bold group-hover:text-slate-100 transition-colors z-0 select-none">A</div>
         <div class="relative z-10">
-          <h3 class="font-serif text-xl text-slate-900 font-semibold mb-4">Stacked Sticky Capabilities Engine</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mb-6">A custom CSS sticky card-stacking mechanic that elegantly unveils services as the user scrolls, featuring monospaced metadata and oversized watermark indices to guide the eye.</p>
+          <h4 class="font-sans font-semibold text-lg text-slate-900 tracking-tight mb-4">Stacked Sticky Capabilities Engine</h4>
+          <p class="font-sans text-slate-600 text-sm sm:text-base leading-relaxed mb-6">A custom CSS sticky card-stacking mechanic that elegantly unveils services as the user scrolls, featuring monospaced metadata and oversized watermark indices to guide the eye.</p>
         </div>
       </div>
       <!-- Card B -->
-      <div class="bg-white p-8 border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-        <div class="absolute -right-4 -bottom-8 text-9xl font-serif text-slate-50 font-bold group-hover:text-slate-100 transition-colors z-0 select-none">B</div>
+      <div class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 hover:border-slate-300 transition-all relative overflow-hidden group">
+        <div class="absolute -right-4 -bottom-8 text-9xl font-sans text-slate-50 font-bold group-hover:text-slate-100 transition-colors z-0 select-none">B</div>
         <div class="relative z-10">
-          <h3 class="font-serif text-xl text-slate-900 font-semibold mb-4">Interactive Corporate Tax Estimator</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mb-6">A real-time, client-side calculator engineered to let CFOs dynamically select entity types and turnover brackets, instantly viewing required compliance tiers without page reloads.</p>
+          <h4 class="font-sans font-semibold text-lg text-slate-900 tracking-tight mb-4">Interactive Corporate Tax Estimator</h4>
+          <p class="font-sans text-slate-600 text-sm sm:text-base leading-relaxed mb-6">A real-time, client-side calculator engineered to let CFOs dynamically select entity types and turnover brackets, instantly viewing required compliance tiers without page reloads.</p>
         </div>
       </div>
       <!-- Card C -->
-      <div class="bg-white p-8 border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-        <div class="absolute -right-4 -bottom-8 text-9xl font-serif text-slate-50 font-bold group-hover:text-slate-100 transition-colors z-0 select-none">C</div>
+      <div class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 hover:border-slate-300 transition-all relative overflow-hidden group">
+        <div class="absolute -right-4 -bottom-8 text-9xl font-sans text-slate-50 font-bold group-hover:text-slate-100 transition-colors z-0 select-none">C</div>
         <div class="relative z-10">
-          <h3 class="font-serif text-xl text-slate-900 font-semibold mb-4">Wall Street Editorial Aesthetics</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mb-6">Leveraged high-contrast Playfair Display typography paired with stark monospaced badges (<span class="font-mono text-xs bg-slate-100 px-1 py-0.5 rounded">IND-AS COMPLIANT</span>) and exactly zero stock photos for uncompromising trust.</p>
+          <h4 class="font-sans font-semibold text-lg text-slate-900 tracking-tight mb-4">Wall Street Editorial Aesthetics</h4>
+          <p class="font-sans text-slate-600 text-sm sm:text-base leading-relaxed mb-6">Leveraged high-contrast typography paired with stark monospaced badges (<span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-[10px] uppercase px-2 py-0.5 rounded">IND-AS COMPLIANT</span>) and exactly zero stock photos for uncompromising trust.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 4. Section 03 // Business Impact Metrics -->
-  <section class="w-full bg-slate-900 text-white py-24 mb-24">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="font-mono text-xs text-slate-400 tracking-widest uppercase mb-16 text-center">03 // Business Impact</h2>
+  <section class="w-full max-w-6xl mx-auto px-6 mb-24">
+    <div class="bg-slate-900 text-white rounded-2xl p-8 sm:p-12 relative overflow-hidden shadow-xl">
+      <!-- Decorative background glow -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-600/20 blur-[100px] rounded-full pointer-events-none"></div>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-slate-700/50 text-center">
-        <div class="pt-8 md:pt-0">
-          <div class="text-5xl md:text-6xl font-serif font-semibold text-teal-400 mb-4">3.5x</div>
-          <p class="text-slate-300 text-sm max-w-xs mx-auto">Higher time-on-page via interactive widgets and sticky card mechanics.</p>
-        </div>
-        <div class="pt-8 md:pt-0">
-          <div class="text-5xl md:text-6xl font-serif font-semibold text-teal-400 mb-4">100%</div>
-          <p class="text-slate-300 text-sm max-w-xs mx-auto">Pre-qualified consultation leads with clear budget expectations.</p>
-        </div>
-        <div class="pt-8 md:pt-0">
-          <div class="text-5xl md:text-6xl font-serif font-semibold text-teal-400 mb-4">$30k+</div>
-          <p class="text-slate-300 text-sm max-w-xs mx-auto">Perceived agency design polish positioning the firm alongside global practices.</p>
+      <div class="relative z-10">
+        <h2 class="font-mono text-xs text-slate-400 tracking-widest uppercase mb-12 text-center">03 // Business Impact</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-slate-700/50 text-center">
+          <div class="pt-8 md:pt-0">
+            <div class="text-5xl md:text-6xl font-sans font-bold text-white tracking-tight mb-4">3.5x</div>
+            <p class="font-sans text-slate-400 text-sm sm:text-base leading-relaxed max-w-xs mx-auto">Higher time-on-page via interactive widgets and sticky card mechanics.</p>
+          </div>
+          <div class="pt-8 md:pt-0">
+            <div class="text-5xl md:text-6xl font-sans font-bold text-white tracking-tight mb-4">100%</div>
+            <p class="font-sans text-slate-400 text-sm sm:text-base leading-relaxed max-w-xs mx-auto">Pre-qualified consultation leads with clear budget expectations.</p>
+          </div>
+          <div class="pt-8 md:pt-0">
+            <div class="text-5xl md:text-6xl font-sans font-bold text-white tracking-tight mb-4">$30k+</div>
+            <p class="font-sans text-slate-400 text-sm sm:text-base leading-relaxed max-w-xs mx-auto">Perceived agency design polish positioning the firm alongside global practices.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -150,9 +156,9 @@
 
   <!-- 5. Call to Action (Bottom Banner) -->
   <section class="w-full max-w-4xl mx-auto px-6 text-center pb-32">
-    <h2 class="font-serif text-3xl sm:text-4xl text-slate-900 font-semibold mb-8">Ready to elevate your brand's digital architecture?</h2>
-    <a href="contact.html" class="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-teal-600 hover:bg-teal-700 rounded-full transition-colors shadow-lg shadow-teal-600/20">
-      Schedule a Strategy Call with Veloiz Studios
+    <h2 class="font-sans font-bold text-3xl sm:text-4xl text-slate-900 tracking-tight mb-8">Ready to elevate your brand's digital architecture?</h2>
+    <a href="contact.html" class="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-slate-900 hover:bg-slate-800 rounded-full transition-colors shadow-lg">
+      Schedule a Strategy Call &rarr;
     </a>
   </section>
 
