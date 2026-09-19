@@ -263,7 +263,7 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
 /* TESTIMONIALS */
 .testi-sec{padding:120px 0;border-top:1px solid rgba(255,255,255,.07)}
 .testi-header{text-align:center;margin-bottom:64px}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .testi-card{position:relative;overflow:hidden;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);padding:32px;border-radius:16px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .3s,background .3s}
 .testi-card::after{content:'\201D';position:absolute;top:-10px;right:20px;font-size:160px;line-height:1;color:rgba(255,255,255,.04);font-family:Arial,sans-serif;pointer-events:none}
 .testi-card:hover{background:rgba(255,255,255,.03);transform:translateY(-4px)}
@@ -518,6 +518,16 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
         <button class="btn-txt" onclick="window.location.href='contact.html'">book a call →</button>
       </div>
       <div class="work-grid reveal">
+        <div class="work-card" onclick="window.open('https://dry-fruits-e-com-web.vercel.app/', '_blank')">
+          <div class="work-img">
+            <img src="https://image.thum.io/get/width/1200/crop/900/https://dry-fruits-e-com-web.vercel.app/" alt="Veloiz Dry Fruits Website Design by Veloiz Studios" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+          </div>
+          <div class="work-meta">
+            <div class="work-tag-sm">E-Commerce</div>
+            <div class="work-title-sm">Veloiz Dry Fruits <span class="work-arr">↗</span></div>
+            <div class="work-desc-sm">Premium e-commerce experience with seamless cart persistence, strict inventory validation, and a minimalist aesthetic.</div>
+          </div>
+        </div>
         <div class="work-card" onclick="window.open('https://frabjous-beijinho-acfbec.netlify.app/', '_blank')">
           <div class="work-img">
             <img src="https://image.thum.io/get/width/1200/crop/900/https://frabjous-beijinho-acfbec.netlify.app/" alt="Crystal Tours & Travels Website Design by Veloiz Studios" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
@@ -615,6 +625,26 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
       </div>
       <div class="testi-grid reveal">
         <div class="testi-card">
+          <div>
+            <div class="testi-stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testi-quote">"The team delivered an incredibly fast, premium e-commerce platform. The custom logic for cart handling and checkout is flawless. Our sales improved immediately thanks to the seamless UX."</p>
+          </div>
+          <div class="testi-author">
+            <div class="testi-av">Z</div>
+            <div class="testi-meta">
+              <span class="testi-name">Zainab Shaikh</span>
+              <span class="testi-role">Owner, Veloiz Dry Fruits</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testi-card" style="transition-delay:.1s">
           <div>
             <div class="testi-stars">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
