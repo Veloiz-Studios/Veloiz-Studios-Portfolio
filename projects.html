@@ -120,7 +120,28 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
   .footer{padding-bottom:100px}
   .footer-bottom{flex-direction:column;align-items:flex-start;gap:20px}
 }
-  </style>
+  
+.masonry-layout {
+  column-count: 2;
+  column-gap: 24px;
+}
+.feed-item {
+  break-inside: avoid;
+  margin-bottom: 24px !important;
+  display: inline-block;
+  width: 100%;
+}
+.feed-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,.04) !important;
+}
+@media (max-width: 768px) {
+  .masonry-layout {
+    column-count: 1;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="vs">
@@ -150,10 +171,10 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
   </section>
 
   <section class="sec" style="padding-top: 20px;">
-    <div class="w" style="max-width: 600px;">
+    <div class="w masonry-layout">
         
       <!-- FEED ITEM 1 -->
-      <div class="feed-item reveal" style="margin-bottom: 80px; background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); border-radius: 20px; overflow: hidden; transition: transform .3s;">
+      <div class="feed-item reveal" style=" background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); border-radius: 20px; overflow: hidden; transition: transform .3s;">
         <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,.05);">
             <div style="display:flex; align-items: center; gap: 12px;">
                 <div style="width: 32px; height: 32px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; font-size: 14px;">V</div>
@@ -161,8 +182,8 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
             </div>
             <div style="font-size: 20px; color: rgba(255,255,255,.3);">...</div>
         </div>
-        <div style="width:100%; aspect-ratio:1/1; background:#0e0e0e; overflow:hidden; cursor: pointer;" onclick="window.location.href='dry-fruits.html'">
-            <img src="https://image.thum.io/get/width/1200/crop/1200/https://dry-fruits-e-com-web.vercel.app/" style="width:100%; height:100%; object-fit:cover;" alt="Veloiz Dry Fruits" loading="lazy">
+        <div style="width:100%; aspect-ratio:auto; background:#0e0e0e; overflow:hidden; cursor: pointer;" onclick="window.location.href='dry-fruits.html'">
+            <img src="https://image.thum.io/get/width/1200/crop/900/https://dry-fruits-e-com-web.vercel.app/" style="width:100%; height:100%; object-fit:cover;" alt="Veloiz Dry Fruits" loading="lazy">
         </div>
         <div style="padding: 24px;">
             <div style="font-weight: 600; font-size: 18px; margin-bottom: 8px;">Veloiz Dry Fruits</div>
@@ -172,7 +193,7 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
       </div>
       
       <!-- FEED ITEM 2 -->
-      <div class="feed-item reveal" style="margin-bottom: 80px; background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); border-radius: 20px; overflow: hidden; transition: transform .3s;">
+      <div class="feed-item reveal" style=" background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); border-radius: 20px; overflow: hidden; transition: transform .3s;">
         <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,.05);">
             <div style="display:flex; align-items: center; gap: 12px;">
                 <div style="width: 32px; height: 32px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; font-size: 14px;">V</div>
@@ -180,8 +201,8 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
             </div>
             <div style="font-size: 20px; color: rgba(255,255,255,.3);">...</div>
         </div>
-        <div style="width:100%; aspect-ratio:1/1; background:#0e0e0e; overflow:hidden; cursor: pointer;" onclick="window.location.href='apex-advisory.html'">
-            <img src="https://image.thum.io/get/width/1200/crop/1200/https://apex-advisory-concept.vercel.app/" style="width:100%; height:100%; object-fit:cover;" alt="Apex Advisory" loading="lazy">
+        <div style="width:100%; aspect-ratio:auto; background:#0e0e0e; overflow:hidden; cursor: pointer;" onclick="window.location.href='apex-advisory.html'">
+            <img src="https://image.thum.io/get/width/1200/crop/1150/https://apex-advisory-concept.vercel.app/" style="width:100%; height:100%; object-fit:cover;" alt="Apex Advisory" loading="lazy">
         </div>
         <div style="padding: 24px;">
             <div style="font-weight: 600; font-size: 18px; margin-bottom: 8px;">Apex Advisory</div>
@@ -191,7 +212,7 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
       </div>
 
       <!-- FEED ITEM 3 -->
-      <div class="feed-item reveal" style="margin-bottom: 80px; background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); border-radius: 20px; overflow: hidden; transition: transform .3s;">
+      <div class="feed-item reveal" style=" background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); border-radius: 20px; overflow: hidden; transition: transform .3s;">
         <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,.05);">
             <div style="display:flex; align-items: center; gap: 12px;">
                 <div style="width: 32px; height: 32px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; font-size: 14px;">V</div>
@@ -199,8 +220,8 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
             </div>
             <div style="font-size: 20px; color: rgba(255,255,255,.3);">...</div>
         </div>
-        <div style="width:100%; aspect-ratio:1/1; background:#0e0e0e; overflow:hidden; cursor: pointer;" onclick="window.location.href='crystal-tours.html'">
-            <img src="https://image.thum.io/get/width/1200/crop/1200/https://frabjous-beijinho-acfbec.netlify.app/" style="width:100%; height:100%; object-fit:cover;" alt="Crystal Tours" loading="lazy">
+        <div style="width:100%; aspect-ratio:auto; background:#0e0e0e; overflow:hidden; cursor: pointer;" onclick="window.location.href='crystal-tours.html'">
+            <img src="https://image.thum.io/get/width/1200/crop/800/https://frabjous-beijinho-acfbec.netlify.app/" style="width:100%; height:100%; object-fit:cover;" alt="Crystal Tours" loading="lazy">
         </div>
         <div style="padding: 24px;">
             <div style="font-weight: 600; font-size: 18px; margin-bottom: 8px;">Crystal Tours & Travels</div>
@@ -210,7 +231,7 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
       </div>
       
       <!-- FEED ITEM 4 -->
-      <div class="feed-item reveal" style="margin-bottom: 80px; background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); border-radius: 20px; overflow: hidden; transition: transform .3s;">
+      <div class="feed-item reveal" style=" background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); border-radius: 20px; overflow: hidden; transition: transform .3s;">
         <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,.05);">
             <div style="display:flex; align-items: center; gap: 12px;">
                 <div style="width: 32px; height: 32px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; font-size: 14px;">V</div>
@@ -218,8 +239,8 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
             </div>
             <div style="font-size: 20px; color: rgba(255,255,255,.3);">...</div>
         </div>
-        <div style="width:100%; aspect-ratio:1/1; background:#0e0e0e; overflow:hidden; cursor: pointer;" onclick="window.location.href='cafe-ibrahim.html'">
-            <img src="https://image.thum.io/get/width/1200/crop/1200/https://cafe-ibrahim-next-eta.vercel.app/" style="width:100%; height:100%; object-fit:cover;" alt="Cafe Ibrahim" loading="lazy">
+        <div style="width:100%; aspect-ratio:auto; background:#0e0e0e; overflow:hidden; cursor: pointer;" onclick="window.location.href='cafe-ibrahim.html'">
+            <img src="https://image.thum.io/get/width/1200/crop/1350/https://cafe-ibrahim-next-eta.vercel.app/" style="width:100%; height:100%; object-fit:cover;" alt="Cafe Ibrahim" loading="lazy">
         </div>
         <div style="padding: 24px;">
             <div style="font-weight: 600; font-size: 18px; margin-bottom: 8px;">Cafe Ibrahim</div>
