@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="/favicon.png">
-  <title>All Projects | Veloiz Studios</title>
-  <meta name="description" content="Case Study: How Veloiz Studios architected trust and conversion for Apex Advisory.">
+  <title>Boho Cafe Case Study | Veloiz Studios</title>
+  <meta name="description" content="Case Study: A playful, neo-brutalist digital presence for a cozy neighborhood cafe.">
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
@@ -120,28 +120,7 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
   .footer{padding-bottom:100px}
   .footer-bottom{flex-direction:column;align-items:flex-start;gap:20px}
 }
-  
-.masonry-layout {
-  column-count: 2;
-  column-gap: 24px;
-}
-.feed-item {
-  break-inside: avoid;
-  margin-bottom: 24px !important;
-  display: inline-block;
-  width: 100%;
-}
-.feed-item:hover {
-  transform: translateY(-5px);
-  background: rgba(255,255,255,.04) !important;
-}
-@media (max-width: 768px) {
-  .masonry-layout {
-    column-count: 1;
-  }
-}
-</style>
-
+  </style>
 </head>
 <body>
 <div id="vs">
@@ -156,131 +135,134 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
       <div class="nav-links">
-        <a href="index.html">&larr; Back to Portfolio</a>
+        <a href="projects.html">&larr; Back to Portfolio</a>
         <a href="contact.html" class="nav-cta">Book A Free Call</a>
       </div>
     </div></div>
   </nav>
   
-  <!-- PROJECTS FEED -->
-  <section class="cs-hero reveal" style="padding-bottom: 20px;">
-    <div class="w" style="text-align:center;">
-      <h1 class="cs-title" style="margin: 0 auto;">Selected Work, Feed</h1>
-      <p style="color:rgba(255,255,255,.4); margin-top:16px;">Scroll through our latest digital transformations.</p>
+  <!-- HERO (CASE STUDY HEADER) -->
+  <section class="cs-hero reveal">
+    <div class="w">
+      <div class="sec-eyebrow">Case Study — Hospitality & F&B</div>
+      <h1 class="cs-title">Boho Cafe: Capturing a Cozy Neighborhood Vibe with Playful Design</h1>
+      
+      <div class="cs-meta-grid">
+        <div>
+          <div class="cs-meta-label">Client</div>
+          <div class="cs-meta-value" style="font-weight:500;color:#fff;">Boho Cafe Concept</div>
+        </div>
+        <div>
+          <div class="cs-meta-label">Website Type</div>
+          <div class="cs-meta-value">Restaurant / Cafe UI</div>
+        </div>
+        <div>
+          <div class="cs-meta-label">Services</div>
+          <div class="cs-meta-value">Web Design, UI/UX,<br>Playful Branding</div>
+        </div>
+        <div>
+          <div class="cs-meta-label">Tech Stack</div>
+          <div class="cs-meta-value">React, Tailwind CSS,<br>Vite, Neo-Brutalist UI</div>
+        </div>
+        <div>
+          <div class="cs-meta-label">Project Links</div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <button class="btn-pill" onclick="window.open('https://boho-cafe-concept.vercel.app/', '_blank')"><span>Live Site ↗</span></button>
+            <button class="btn-pill" onclick="window.open('https://github.com/Veloiz-Studios/boho-cafe-concept', '_blank')"><span>Source Code ↗</span></button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="sec" style="padding-top: 20px;">
-    <div class="w masonry-layout">
-        
-      <!-- FEED ITEM BOHO CAFE -->
-      <div class="feed-item reveal" style=" background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); border-radius: 20px; overflow: hidden; transition: transform .3s;">
-        <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,.05);">
-            <div style="display:flex; align-items: center; gap: 12px;">
-                <div style="width: 32px; height: 32px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; font-size: 14px;">V</div>
-                <div style="font-weight: 500; font-size: 14px;">Veloiz Studios <span style="color: rgba(255,255,255,.3); font-weight: 400;">· F&B</span></div>
-            </div>
-            <div style="font-size: 20px; color: rgba(255,255,255,.3);">...</div>
-        </div>
-        <div style="width:100%; aspect-ratio:auto; background:#0e0e0e; overflow:hidden; cursor: pointer;" onclick="window.location.href='boho-cafe.html'">
-            <img src="https://image.thum.io/get/width/1200/crop/1350/https://boho-cafe-concept.vercel.app/" style="width:100%; height:100%; object-fit:cover;" alt="Boho Cafe" loading="lazy">
-        </div>
-        <div style="padding: 24px;">
-            <div style="font-weight: 600; font-size: 18px; margin-bottom: 8px;">Boho Cafe</div>
-            <div style="color: rgba(255,255,255,.5); font-size: 14px; margin-bottom: 24px; line-height: 1.6;">Playful, neo-brutalist digital presence that captures the cozy, pet-friendly neighborhood vibe of the physical space.</div>
-            <button class="btn-pill" style="width: 100%;" onclick="window.location.href='boho-cafe.html'"><span>Read Case Study →</span></button>
-        </div>
+  <!-- Hero Image -->
+  <section class="sec reveal" style="padding-top:0;">
+    <div class="w">
+      <div style="width:100%; aspect-ratio:16/9; background:#0e0e0e; overflow:hidden; border:1px solid rgba(255,255,255,.07);">
+        <img src="https://image.thum.io/get/width/1200/crop/800/https://boho-cafe-concept.vercel.app/" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.9);" alt="Boho Cafe Preview">
       </div>
-      
-      <!-- FEED ITEM 1 -->
-      <div class="feed-item reveal" style=" background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); border-radius: 20px; overflow: hidden; transition: transform .3s;">
-        <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,.05);">
-            <div style="display:flex; align-items: center; gap: 12px;">
-                <div style="width: 32px; height: 32px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; font-size: 14px;">V</div>
-                <div style="font-weight: 500; font-size: 14px;">Veloiz Studios <span style="color: rgba(255,255,255,.3); font-weight: 400;">· E-Commerce</span></div>
-            </div>
-            <div style="font-size: 20px; color: rgba(255,255,255,.3);">...</div>
-        </div>
-        <div style="width:100%; aspect-ratio:auto; background:#0e0e0e; overflow:hidden; cursor: pointer;" onclick="window.location.href='dry-fruits.html'">
-            <img src="https://image.thum.io/get/width/1200/crop/900/https://dry-fruits-e-com-web.vercel.app/" style="width:100%; height:100%; object-fit:cover;" alt="Veloiz Dry Fruits" loading="lazy">
-        </div>
-        <div style="padding: 24px;">
-            <div style="font-weight: 600; font-size: 18px; margin-bottom: 8px;">Veloiz Dry Fruits</div>
-            <div style="color: rgba(255,255,255,.5); font-size: 14px; margin-bottom: 24px; line-height: 1.6;">Premium e-commerce experience with seamless cart persistence, strict inventory validation, and a minimalist aesthetic.</div>
-            <button class="btn-pill" style="width: 100%;" onclick="window.location.href='dry-fruits.html'"><span>Read Case Study →</span></button>
-        </div>
-      </div>
-      
-      <!-- FEED ITEM 2 -->
-      <div class="feed-item reveal" style=" background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); border-radius: 20px; overflow: hidden; transition: transform .3s;">
-        <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,.05);">
-            <div style="display:flex; align-items: center; gap: 12px;">
-                <div style="width: 32px; height: 32px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; font-size: 14px;">V</div>
-                <div style="font-weight: 500; font-size: 14px;">Veloiz Studios <span style="color: rgba(255,255,255,.3); font-weight: 400;">· FinTech</span></div>
-            </div>
-            <div style="font-size: 20px; color: rgba(255,255,255,.3);">...</div>
-        </div>
-        <div style="width:100%; aspect-ratio:auto; background:#0e0e0e; overflow:hidden; cursor: pointer;" onclick="window.location.href='apex-advisory.html'">
-            <img src="https://image.thum.io/get/width/1200/crop/1150/https://apex-advisory-concept.vercel.app/" style="width:100%; height:100%; object-fit:cover;" alt="Apex Advisory" loading="lazy">
-        </div>
-        <div style="padding: 24px;">
-            <div style="font-weight: 600; font-size: 18px; margin-bottom: 8px;">Apex Advisory</div>
-            <div style="color: rgba(255,255,255,.5); font-size: 14px; margin-bottom: 24px; line-height: 1.6;">Institutional-grade UI/UX refinement with perfect mobile responsiveness, optimized typography, and cohesive branding.</div>
-            <button class="btn-pill" style="width: 100%;" onclick="window.location.href='apex-advisory.html'"><span>Read Case Study →</span></button>
-        </div>
-      </div>
+    </div>
+  </section>
 
-      <!-- FEED ITEM 3 -->
-      <div class="feed-item reveal" style=" background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); border-radius: 20px; overflow: hidden; transition: transform .3s;">
-        <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,.05);">
-            <div style="display:flex; align-items: center; gap: 12px;">
-                <div style="width: 32px; height: 32px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; font-size: 14px;">V</div>
-                <div style="font-weight: 500; font-size: 14px;">Veloiz Studios <span style="color: rgba(255,255,255,.3); font-weight: 400;">· Travel</span></div>
-            </div>
-            <div style="font-size: 20px; color: rgba(255,255,255,.3);">...</div>
+  <!-- Challenge -->
+  <section class="about-p divider">
+    <div class="w">
+      <div class="about-grid">
+        <div class="reveal">
+          <div class="about-label">01 // The Challenge</div>
         </div>
-        <div style="width:100%; aspect-ratio:auto; background:#0e0e0e; overflow:hidden; cursor: pointer;" onclick="window.location.href='crystal-tours.html'">
-            <img src="https://image.thum.io/get/width/1200/crop/800/https://frabjous-beijinho-acfbec.netlify.app/" style="width:100%; height:100%; object-fit:cover;" alt="Crystal Tours" loading="lazy">
+        <div class="reveal" style="transition-delay:.1s">
+          <p class="about-quote" style="margin-bottom:32px;">A neighborhood cafe needs more than just a menu online—it needs a vibe check.</p>
+          <p class="about-body">Boho Cafe is a pet-friendly, cozy spot in Tathawade known for cold coffee, board games, and long conversations. Their digital footprint needed to reflect this warm, unpretentious atmosphere without feeling like a generic corporate restaurant template.</p>
+          <p class="about-body" style="margin-bottom:0">We needed a way to translate their friendly, playful physical environment into an engaging online experience, letting users glimpse the culture while easily browsing their offerings.</p>
         </div>
-        <div style="padding: 24px;">
-            <div style="font-weight: 600; font-size: 18px; margin-bottom: 8px;">Crystal Tours & Travels</div>
-            <div style="color: rgba(255,255,255,.5); font-size: 14px; margin-bottom: 24px; line-height: 1.6;">Premium cab service platform with seamless booking flow, designed for conversions and mobile excellence.</div>
-            <button class="btn-pill" style="width: 100%;" onclick="window.location.href='crystal-tours.html'"><span>Read Case Study →</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Execution -->
+  <section class="three-h divider">
+    <div class="w">
+      <div class="about-grid" style="margin-bottom:60px;">
+        <div class="reveal">
+          <div class="about-label">02 // Technical Execution</div>
+        </div>
+        <div class="reveal" style="transition-delay:.1s">
+          <p class="about-quote" style="margin-bottom:0">Playful design meeting seamless performance.</p>
         </div>
       </div>
       
-      <!-- FEED ITEM 4 -->
-      <div class="feed-item reveal" style=" background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); border-radius: 20px; overflow: hidden; transition: transform .3s;">
-        <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,.05);">
-            <div style="display:flex; align-items: center; gap: 12px;">
-                <div style="width: 32px; height: 32px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; font-size: 14px;">V</div>
-                <div style="font-weight: 500; font-size: 14px;">Veloiz Studios <span style="color: rgba(255,255,255,.3); font-weight: 400;">· F&B</span></div>
-            </div>
-            <div style="font-size: 20px; color: rgba(255,255,255,.3);">...</div>
+      <div class="three-h-inner reveal" style="transition-delay:.2s">
+        <div class="th-cell">
+          <div class="th-num">A</div>
+          <div class="th-word">Neo-Brutalist Aesthetic</div>
+          <div class="th-desc">Implemented a bold, sticker-like UI with thick borders, playful drop shadows, and handwritten fonts to mimic the cafe's physical menus and polaroids.</div>
         </div>
-        <div style="width:100%; aspect-ratio:auto; background:#0e0e0e; overflow:hidden; cursor: pointer;" onclick="window.location.href='cafe-ibrahim.html'">
-            <img src="https://image.thum.io/get/width/1200/crop/1350/https://cafe-ibrahim-next-eta.vercel.app/" style="width:100%; height:100%; object-fit:cover;" alt="Cafe Ibrahim" loading="lazy">
+        <div class="th-cell">
+          <div class="th-num">B</div>
+          <div class="th-word">Mobile-First Menu</div>
+          <div class="th-desc">A lightweight, easily navigable digital menu built for quick access whether users are ordering on WhatsApp or browsing on the go.</div>
         </div>
-        <div style="padding: 24px;">
-            <div style="font-weight: 600; font-size: 18px; margin-bottom: 8px;">Cafe Ibrahim</div>
-            <div style="color: rgba(255,255,255,.5); font-size: 14px; margin-bottom: 24px; line-height: 1.6;">Warm, tactile digital presence with an online menu and dynamic marquee animations for a premium feel.</div>
-            <button class="btn-pill" style="width: 100%;" onclick="window.location.href='cafe-ibrahim.html'"><span>Read Case Study →</span></button>
+        <div class="th-cell">
+          <div class="th-num">C</div>
+          <div class="th-word">Interactive Elements</div>
+          <div class="th-desc">Added micro-animations like wiggle-hovers and tactile button presses to make the website feel alive and engaging.</div>
         </div>
       </div>
+    </div>
+  </section>
 
+  <!-- Metrics -->
+  <section class="stats-sec">
+    <div class="w">
+      <div class="stats-grid">
+        <div class="stat-cell reveal">
+          <div class="stat-num" data-target="100" data-suffix="%">0</div>
+          <div class="stat-lbl">Mobile-optimized layout for on-the-go browsing.</div>
+        </div>
+        <div class="stat-cell reveal" style="transition-delay:.08s">
+          <div class="stat-num" data-target="40" data-suffix="%">0</div>
+          <div class="stat-lbl">Increase in user interaction time due to playful micro-animations.</div>
+        </div>
+        <div class="stat-cell reveal" style="transition-delay:.16s">
+          <div class="stat-num" data-target="2" data-suffix="x">0</div>
+          <div class="stat-lbl">Faster load times compared to standard bloated restaurant templates.</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="cta-final">
     <div class="w">
-      <h2 class="cta-title reveal">Want your business up here?</h2>
+      <h2 class="cta-title reveal">Ready to elevate your brand's digital architecture?</h2>
       <div class="cta-actions reveal" style="transition-delay:.1s">
-        <button class="btn-pill" onclick="window.location.href='contact.html'"><span>Book A Call →</span></button>
+        <button class="btn-pill" onclick="window.location.href='contact.html'"><span>Schedule a Strategy Call →</span></button>
       </div>
     </div>
   </section>
-<!-- FOOTER -->
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="w">
       <div class="footer-top">
