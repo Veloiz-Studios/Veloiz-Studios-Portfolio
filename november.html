@@ -269,10 +269,8 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
 /* ============================
    NOVEMBER HERO
    ============================ */
-.nov-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:60px;position:relative;overflow:hidden;background:#000}
-.nov-hero-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,#000 40%,transparent 100%)}
-.nov-hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse 100% 80% at 50% -10%,rgba(255,255,255,.04) 0%,transparent 70%);z-index:1}
-.nov-hero-content{position:relative;z-index:2;padding:80px 0 100px}
+.nov-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 80px;position:relative;background:#000}
+.nov-hero-content{position:relative;z-index:2}
 .nov-campaign-label{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.12);padding:6px 16px;border-radius:100px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:40px;background:rgba(255,255,255,.04);opacity:0;animation:fadeUp .6s .1s forwards}
 .nov-pulse-dot{width:6px;height:6px;background:#fff;border-radius:50%;animation:novPulse 2s ease-in-out infinite}
 @keyframes novPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.8)}}
@@ -390,13 +388,8 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
 .nov-cta-sub{font-size:15px;color:rgba(255,255,255,.4);margin-bottom:48px;max-width:400px;margin-left:auto;margin-right:auto;line-height:1.7}
 .nov-cta-actions{display:flex;justify-content:center;gap:16px;align-items:center;flex-wrap:wrap}
 
-/* BREADCRUMB */
-.nov-breadcrumb{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.05)}
-.nov-breadcrumb-inner{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.25)}
-.nov-breadcrumb-inner a{color:rgba(255,255,255,.25);text-decoration:none;transition:color .2s}
-.nov-breadcrumb-inner a:hover{color:rgba(255,255,255,.6)}
-.nov-breadcrumb-sep{font-size:10px;color:rgba(255,255,255,.15)}
-.nov-breadcrumb-curr{color:rgba(255,255,255,.45)}
+.f-back{font-size:12px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.f-back:hover{color:#fff}
 
 /* FAQ SECTION */
 .nov-faq{padding:100px 0;border-top:1px solid rgba(255,255,255,.07)}
@@ -459,7 +452,7 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
   .nov-why-grid{grid-template-columns:1fr;gap:48px}
   .nov-why-visual{padding-top:0}
   .nov-final-cta{padding:80px 0}
-  .nov-hero-content{padding:60px 0 80px}
+  .nov-hero{padding:100px 0 60px}
 }
 </style>
 </head>
@@ -493,21 +486,8 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
     </div></div>
   </nav>
 
-  <!-- BREADCRUMB -->
-  <div class="nov-breadcrumb" style="margin-top:60px">
-    <div class="w">
-      <nav class="nov-breadcrumb-inner" aria-label="Breadcrumb">
-        <a href="/">Home</a>
-        <span class="nov-breadcrumb-sep" aria-hidden="true">›</span>
-        <span class="nov-breadcrumb-curr" aria-current="page">No-Nonsense November</span>
-      </nav>
-    </div>
-  </div>
-
   <!-- HERO -->
   <section class="nov-hero" id="hero">
-    <div class="nov-hero-grid"></div>
-    <div class="nov-hero-overlay"></div>
     <div class="nov-hero-content">
       <div class="w">
         <div class="nov-campaign-label">
@@ -817,9 +797,10 @@ body.hovering #cur-dot{transform:translate(-50%,-50%) scale(0)}
           <a href="/privacy" style="font-size:12px;color:rgba(255,255,255,.3);text-decoration:none">Privacy Policy</a>
           <a href="/terms" style="font-size:12px;color:rgba(255,255,255,.3);text-decoration:none">Terms &amp; Conditions</a>
         </div>
-        <div class="f-social">
+        <div class="f-social" style="display:flex;gap:16px;align-items:center">
           <a href="https://www.instagram.com/veloizstudios/" target="_blank">Instagram</a>
           <a href="https://www.linkedin.com/company/veloiz-studios/" target="_blank">LinkedIn</a>
+          <a href="/" class="f-back">&larr; back to home</a>
         </div>
       </div>
     </div>
